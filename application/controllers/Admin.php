@@ -15,6 +15,7 @@ class Admin extends CI_Controller {
 	{
 		$this->load->view('admin/home');
 		//coaba comiit lagi
+		var_dump("coba coba");
     }
 
 }
