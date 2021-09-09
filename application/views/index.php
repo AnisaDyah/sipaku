@@ -1,209 +1,101 @@
-<!DOCTYPE html>
-<html lang="zxx" class="no-js">
-
-<head>
-	<!-- Mobile Specific Meta -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<!-- Favicon-->
-	<link rel="shortcut icon" href="<?php echo base_url('assets/img/iconweb.png') ?>">
-	<!-- Author Meta -->
-	<meta name="author" content="codepixer">
-	<!-- Meta Description -->
-	<meta name="description" content="">
-	<!-- Meta Keyword -->
-	<meta name="keywords" content="">
-	<!-- meta character set -->
-	<meta charset="UTF-8">
-	<!-- Site Title -->
-	<title>SIPAKUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU</title>
-	<link rel="stylesheet" href="<?php echo base_url('assets/fontawesome/css/all.css') ?>">
-	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
-	<!--CSS============================================= -->
-	<link rel="stylesheet" href="<?php echo base_url('assets/css/linearicons.css') ?>">
-	<link rel="stylesheet" href="<?php echo base_url('assets/css/font-awesome.min.css') ?>">
-	<link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.css') ?>">
-	<link rel="stylesheet" href="<?php echo base_url('assets/css/magnific-popup.css') ?>">
-	<link rel="stylesheet" href="<?php echo base_url('assets/css/nice-select.css') ?>">
-	<link rel="stylesheet" href="<?php echo base_url('assets/css/animate.min.css') ?>">
-	<link rel="stylesheet" href="<?php echo base_url('assets/css/owl.carousel.css') ?>">
-	<link rel="stylesheet" href="<?php echo base_url('assets/css/main.css') ?>">
-	<style>
-		body {
-			font-family: 'Varela Round', sans-serif;
-		}
-
-		.modal-login {
-			color: #636363;
-			width: 350px;
-			margin: 80px auto 0;
-		}
-
-		.modal-login .modal-content {
-			padding: 20px;
-			border-radius: 5px;
-			border: none;
-		}
-
-		.modal-login .modal-header {
-			border-bottom: none;
-			position: relative;
-			justify-content: center;
-		}
-
-		.modal-login h4 {
-			text-align: center;
-			font-size: 26px;
-			margin: 30px 0 -15px;
-		}
-
-		.modal-login .form-control:focus {
-			border-color: #70c5c0;
-		}
-
-		.modal-login .form-control,
-		.modal-login .btn {
-			min-height: 40px;
-			border-radius: 3px;
-		}
-
-		.modal-login .close {
-			position: absolute;
-			top: -5px;
-			right: -5px;
-		}
-
-		.modal-login .modal-footer {
-			background: #ecf0f1;
-			border-color: #dee4e7;
-			text-align: center;
-			justify-content: center;
-			margin: 0 -20px -20px;
-			border-radius: 5px;
-			font-size: 13px;
-		}
-
-		.modal-login .modal-footer a {
-			color: #999;
-		}
-
-		.modal-login .avatar {
-			position: absolute;
-			margin: 0 auto;
-			left: 0;
-			right: 0;
-			top: -70px;
-			width: 95px;
-			height: 95px;
-			border-radius: 50%;
-			z-index: 9;
-			background: #DEB887;
-			padding: 15px;
-			box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
-		}
-
-		.modal-login .avatar img {
-			width: 100%;
-		}
-
-		.modal-login .btn {
-			color: #fff;
-			border-radius: 4px;
-			background: #8B4513;
-			text-decoration: none;
-			transition: all 0.4s;
-			line-height: normal;
-			border: none;
-		}
-
-		.modal-login .btn:hover,
-		.modal-login .btn:focus {
-			background: #FFF8DC;
-			outline: none;
-		}
-
-		.trigger-btn {
-			display: inline-block;
-			margin: 100px auto;
-		}
-	</style>
-</head>
-
 <body>
-	<!-- #navbar -->
-	<?php $this->load->view('header.php') ?>
-	<!-- #end navbar -->
+	<!-- ===============================================-->
+	<!--    Main Content-->
+	<!-- ===============================================-->
+	<main class="main" id="top">
+		<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" data-navbar-on-scroll="data-navbar-on-scroll">
+			<div class="container"><a class="navbar-brand d-flex align-items-center fw-bold fs-2" href="#">
+					<img class="d-inline-block me-3" src="<?php echo base_url('assets_home/public/assets/img/logo.png') ?>" alt="" />SIPAKU</a>
+				<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+				<div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+					<ul class="navbar-nav ms-auto pt-2 pt-lg-0">
 
-	<!-- start banner header Area -->
-	<section class="banner-area" id="beranda">
-		<div class="container">
-			<div class="row fullscreen d-flex align-items-center justify-content-start" style="height: 657px;">
-				<div class="banner-content col-lg-7" style="padding-top: 100px">
-					<div class="row">
-						<div class="col-md-6">
-							<h6 class="text-white text-uppercase">SISTEM PAKAR</h6>
-						</div>
-					</div>
-					<h1>
-						Diagnosa<br>
-						Hama dan Penyakit<br>
-						Tanaman Kopi
-					</h1>
-					<a href="<?php echo base_url('Diagnosa') ?>" class="primary-btn text-uppercase">MULAI DIAGNOSA</a>
+						<li class="nav-item"><a class="nav-link" href="index.php">HOME</a></li>
+						<!-- <li class="nav-item" data-toggle="modal" data-target="#login-modal">LOGIN</li> -->
+						<li class="nav-item"><a class="nav-link" href="#login">LOGIN</a></li>
+					</ul>
 				</div>
 			</div>
-		</div>
-	</section>
-	<!-- End banner header Area -->
+		</nav>
+		<section class="py-0">
+			<div class="bg-holder" style="background-image:url(<?php echo base_url('assets/img/illustrations/dot.png') ?>);background-position:left;background-size:auto;margin-top:-105px;">
+			</div>
+			<!--/.bg-holder-->
 
-	<!-- Start menu Area -->
-	<section class="menu-area section-gap" id="galeri">
-		<div class="container">
-			<div class="row d-flex justify-content-center">
-				<div class="menu-content pb-60 col-lg-10">
-					<div class="title text-center">
-						<h1 class="mb-10">HAMA DAN PENYAKIT TANAMAN KOPI</h1>
-						<p></p>
+			<div class="container position-relative">
+				<div class="row align-items-center">
+					<div class="col-md-5 col-lg-6 order-md-1 pt-8"><img class="img-fluid" src="<?php echo base_url('assets_home/public/assets/img/illustrations/hero-header.png') ?>" alt="" /></div>
+					<div class="col-md-7 col-lg-6 text-center text-md-start pt-5 pt-md-9">
+						<h1 class="mb-4 display-3 fw-bold">Virtual healthcare <br class="d-block d-lg-none d-xl-block" />for you.</h1>
+						<p class="mt-3 mb-4 fs-1">Trafalgar provides progressive, and affordable<br class="d-none d-lg-block" />healthcare, accessible on mobile and online<br class="d-none d-lg-block" />for everyone</p><a class="btn btn-lg btn-primary rounded-pill hover-top" href="#About" role="button">DIAGNOSIS</a>
 					</div>
 				</div>
 			</div>
-			<!-- <div class="row">
-				<div class="col-lg-4">
-					<div class="single-menu">
-						<div class="title-div justify-content-between d-flex">
-							<h4>Cappuccino</h4>
-							<p class="price float-right">
-								$49
-							</p>
-						</div>
-						<p>
-							Usage of the Internet is becoming more common due to rapid advance.
-						</p>
+		</section>
+		<section class="py-8">
+			<div class="bg-holder" style="background-image:url(assets/img/illustrations/services-bg.png);background-position:center left;background-size:auto;">
+			</div>
+			<!--/.bg-holder-->
+
+			<div class="bg-holder" style="background-image:url(assets/img/illustrations/dot-2.png);background-position:center right;background-size:auto;margin-left:-180px;margin-top:20px;">
+			</div>
+			<!--/.bg-holder-->
+
+			<div class="container-lg">
+				<div class="row justify-content-center">
+					<div class="col-3 text-center">
+						<h2 class="fw-bold">Our services</h2>
+						<hr class="w-25 mx-auto text-dark" style="height:2px;" />
 					</div>
 				</div>
-			</div> -->
-		</div>
-	</section>
-	<!-- End menu Area -->
+				<div class="row justify-content-center">
+					<div class="col-sm-9 col-xl-8 text-center">
+						<p>We provide to you the best choiches for you. Adjust it to your health needs and make sure your undergo treatment with our highly qualified doctors you can consult with us which type of service is suitable for your health</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="py-6 py-lg-8" id="login">
+			<div class="bg-holder" style="background-image:url(assets/img/illustrations/dot.png);background-position:right bottom;background-size:auto;margin-top:50px;">
+			</div>
+			<!--/.bg-holder-->
 
-	<!-- start footer Area -->
-	<?php $this->load->view('footer.php') ?>
-	<!-- End footer Area -->
+			<div class="container">
+				<div class="row h-100">
+					<div class="col-12">
+						<div class="card text-white bg-primary-gradient">
+							<div class="row g-xl-0 align-items-center card-body p-4 p-md-4 p-lg-7">
+								<div class="col-md-6"><img class="img-fluid mb-5 mb-md-0" src="<?php echo base_url('assets_home/public/assets/img/illustrations/about-1.png') ?>" width="480" alt="" /></div>
+								<div class="col-md-6 text-center text-md-start">
+									<h2 class="fw-bold lh-base text-center text-white">PLEASE LOGIN !</h2>
+									<hr class="mx-auto" style="height:2px;width:350px" />
 
-	<script src="<?php echo base_url('assets/') ?>js/vendor/jquery-2.2.4.min.js"></script>
-	<script src="<?php echo base_url('assets/') ?>js/vendor/bootstrap.min.js"></script>
-	<script src="<?php echo base_url('assets/') ?>js/easing.min.js"></script>
-	<script src="<?php echo base_url('assets/') ?>js/hoverIntent.js"></script>
-	<script src="<?php echo base_url('assets/') ?>js/superfish.min.js"></script>
-	<script src="<?php echo base_url('assets/') ?>js/jquery.ajaxchimp.min.js"></script>
-	<script src="<?php echo base_url('assets/') ?>js/jquery.magnific-popup.min.js"></script>
-	<script src="<?php echo base_url('assets/') ?>js/owl.carousel.min.js"></script>
-	<script src="<?php echo base_url('assets/') ?>js/jquery.sticky.js"></script>
-	<script src="<?php echo base_url('assets/') ?>js/jquery.nice-select.min.js"></script>
-	<script src="<?php echo base_url('assets/') ?>js/parallax.min.js"></script>
-	<script src="<?php echo base_url('assets/') ?>js/waypoints.min.js"></script>
-	<script src="<?php echo base_url('assets/') ?>js/jquery.counterup.min.js"></script>
-	<script src="<?php echo base_url('assets/') ?>js/mail-script.js"></script>
-	<script src="<?php echo base_url('assets/') ?>/js/main.js"></script>
-</body>
+									<form action="<?php echo site_url('Admin') ?>" method="post">
 
-</html>
+										<div class="form-group">
+											<div class="row justify-content-center">
+												<div class="col-md-6 mb-2">
+													<input type="text" class="form-control" name="username" placeholder="Username" required="required">
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="row justify-content-center">
+												<div class="col-md-6 mb-2">
+													<input type="password" class="form-control" name="password" placeholder="Password" required="required">
+												</div>
+											</div>
+										</div>
+
+										<div class="text-center py-3">
+											<button class="btn btn-lg btn-outline-light rounded-pill" type="submit"> LOGIN </button>
+										</div>
+
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
