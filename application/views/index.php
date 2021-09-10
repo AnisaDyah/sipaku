@@ -27,7 +27,7 @@
 					<div class="col-md-5 col-lg-6 order-md-1 pt-8"><img class="img-fluid" src="<?php echo base_url('assets_home/public/assets/img/illustrations/hero-header.png') ?>" alt="" /></div>
 					<div class="col-md-7 col-lg-6 text-center text-md-start pt-5 pt-md-9">
 						<h1 class="mb-4 display-3 fw-bold">Virtual healthcare <br class="d-block d-lg-none d-xl-block" />for you.</h1>
-						<p class="mt-3 mb-4 fs-1">Trafalgar provides progressive, and affordable<br class="d-none d-lg-block" />healthcare, accessible on mobile and online<br class="d-none d-lg-block" />for everyone</p><a class="btn btn-lg btn-primary rounded-pill hover-top" href="#About" role="button">DIAGNOSIS</a>
+						<p class="mt-3 mb-4 fs-1">Trafalgar provides progressive, and affordable<br class="d-none d-lg-block" />healthcare, accessible on mobile and online<br class="d-none d-lg-block" />for everyone</p><a class="btn btn-lg btn-primary rounded-pill hover-top" href="<?php echo site_url('DiagnosaController') ?>" role="button">Lakukan Diagnosa</a>
 					</div>
 				</div>
 			</div>
