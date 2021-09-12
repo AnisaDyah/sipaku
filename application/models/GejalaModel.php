@@ -6,6 +6,12 @@ class GejalaModel extends CI_Model
     {
 		$hasil=$this->db->query("SELECT * FROM mst_gejala ORDER BY 'ASC' ");
 		return $hasil;
+    }
+    
+    public function get_id_gejala($id_gejala)
+    {
+		$id_gejala=$this->db->query("SELECT id_gejala FROM mst_gejala where id_gejala='$id_gejala'");
+		return $id_gejala;
 	}
 
     // public function simpan_gejala($kd_gejala,$nama_gejala)

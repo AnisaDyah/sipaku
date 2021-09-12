@@ -20,6 +20,18 @@ class BasisKasusModel extends CI_Model
 			array_push($new_penyakit,$value);
 		}
 		return $new_penyakit;
+	}
+	
+	public function get_basis_kasus_byid($id_penyakit)
+    {
+		
+		$basis_kasus= $this->db->select('mst_gejala.*')
+			->join('mst_gejala', 'mst_gejala.id_gejala = basis_kasus.id_gejala')
+			->join('mst_penyakit', 'mst_penyakit.id_penyakit = basis_kasus.id_penyakit')
+			->where('basis_kasus.id_penyakit', $id_penyakit)
+			->get('basis_kasus')->result_array();
+
+		return $basis_kasus;
     }
 
 	// public function diagnosa()
