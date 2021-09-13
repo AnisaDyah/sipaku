@@ -44,7 +44,7 @@
                                                     <?php } ?>
                                                     <h4 class="fw-bold lh-base text-white">Penyakit kulit yang anda alami adalah : <?= $nama_penyakit ?></h4>
                                                     <h5 class="fw-bold lh-base text-white">Dengan Prosentase Kemungkinan Sebesar :  <?= $perhitungan_fc ?> %</h5>
-                                                    <h5 class="fw-bold lh-base text-white">Saran Pengobatan yang harus dilakukan adalah  : <br/> <?= $saran_pengobatan ?> %</h5>
+                                                    <h5 class="fw-bold lh-base text-white">Saran Pengobatan yang harus dilakukan adalah  : <br/> <?= $saran_pengobatan ?></h5>
 												</div>
 											</div>
 										</div>

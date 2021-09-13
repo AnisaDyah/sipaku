@@ -26,6 +26,11 @@ class DiagnosaController extends CI_Controller {
                 delete_cookie("cookie_id_gejala[".$key."]");
             }
         }
+        if($this->input->cookie('cookie_id_penyakit[0]',true) != null){
+            foreach ($this->input->cookie('cookie_id_penyakit',true) as $key => $value) {
+                delete_cookie("cookie_id_penyakit[".$key."]");
+            }
+        }
         $this->load->view('header');
         $this->load->view('users/halaman_diagnosa',$diagnosa['data'][0]);
         $this->load->view('footer');
@@ -99,29 +104,13 @@ class DiagnosaController extends CI_Controller {
                 foreach ($objectToArray1['gejala'][0] as $ke => $ve) {
                     //var_dump($ve);
                     array_push($objectToArray2,(array)$ve);
-                    // foreach ($ve as $v) {
-                    //     $objectToArray2 = (array)$v;
-
-                    // }
-                //     // for( $i = 0; $i < count($objectToArray2; $i++ ){
-                //         //     $objectToArray2.[$i] = [$i].$objectToArray2[$i];
-                //         // }
-                //         //$objectToArray2[0]=[];
                 }
-                //     // $arr[0]=$objectToArray2;
-                //     // // foreach ($objectToArray2 as $k => $v) {
-                //     // //     array_push($arr,$v);
-                //     // // }
-                //     // // array_push($objectToArray2,$arr);
-                //     // $objectToArray2 = $arr;
                 $objectToArray1['gejala'][0]=$objectToArray2;
                 array_push($basis_kasus,$objectToArray1);
 
             }
-            // $coba= json_decode(json_encode($basis_kasus));
-            // var_dump($coba);
-            //var_dump($basis_kasus);
         }
+        //var_dump($basis_kasus);
             
         foreach ($basis_kasus as $key => $value) {
             //ambil id gejala
@@ -192,8 +181,27 @@ class DiagnosaController extends CI_Controller {
                     }
                 }
                 $array_id_gejala = array_unique($array_id_gejala_cookie);
-                var_dump($array_id_gejala);
+                //var_dump($array_id_gejala);
 
+                //var_dump($basis_kasus_new[0]['id_penyakit']);
+                //simpan id penyakit yang menjadi dugaan pertama kedalam cookie
+                if(count($gejala_kasus_updated) !== 0){
+                    $cookie_id_penyakit= array(
+                        'name'   => 'cookie_id_penyakit['.$array_id.']',
+                        'value'  => $basis_kasus_new[0]['id_penyakit'],                            
+                        'expire' => '3600',                                                                                   
+                        'secure' => true
+                    );
+                    $this->input->set_cookie($cookie_id_penyakit);
+                }
+                $array_id_penyakit_cookie=[];
+                if($this->input->cookie('cookie_id_penyakit[0]',true) != null){
+                    foreach ($this->input->cookie('cookie_id_penyakit',true) as $key => $value) {
+                       array_push($array_id_penyakit_cookie,$value);
+                    }
+                }
+                $array_id_penyakit = array_unique($array_id_penyakit_cookie);
+                var_dump($array_id_penyakit);
                 //store array basis kasus yang sudah pernah dicek
                 $cookie= array(
                     'name'   => 'cookie_basis_kasus',
@@ -229,10 +237,54 @@ class DiagnosaController extends CI_Controller {
     public function cek_gejala_tidak($id_gejala)
 	{
         $search=null;
-        //if($id_gejala == 1){
+        if($this->input->cookie('cookie_basis_kasus',true) == null){
             $basis_kasus =$this->BasisKasusModel->get_basis_kasus();
-            $basis_kasus_new=[];
-        //}
+        }else{
+            $array_id_penyakit_cookie=[];
+            if($this->input->cookie('cookie_id_penyakit[0]',true) != null){
+                foreach ($this->input->cookie('cookie_id_penyakit',true) as $key => $value) {
+                   array_push($array_id_penyakit_cookie,$value);
+                }
+            }
+            $array_id_penyakit = array_unique($array_id_penyakit_cookie);
+            
+            $array_id_gejala_cookie=['1'];
+            if($this->input->cookie('cookie_id_gejala[0]',true) != null){
+                foreach ($this->input->cookie('cookie_id_gejala',true) as $key => $value) {
+                    array_push($array_id_gejala_cookie,$value);
+                }
+            }
+            $array_id_gejala = array_unique($array_id_gejala_cookie);
+            //var_dump($array_id_gejala);
+
+            $basis_kasus=[];
+            $basis_kasus_asli =$this->BasisKasusModel->get_basis_kasus();
+            foreach ($basis_kasus_asli as $key => $value) {
+                foreach ($array_id_penyakit as $va) {
+                    if($value['id_penyakit'] === $va){
+                        //unset($basis_kasus_asli[$key]);
+                        array_splice($basis_kasus_asli,$key,1);
+                    }
+                }
+                
+            }
+
+            foreach ($basis_kasus_asli as $key => $value) {
+                foreach ($value['gejala'][0] as $k => $v) {
+                    foreach ($array_id_gejala as $va) {
+                        if($v['id_gejala'] === $va){
+                            echo $v['id_gejala'].'===='.$va;
+                            unset($value['gejala'][0][$k]);
+                            //array_splice($value['gejala'][0],$k,1);
+                        }
+                    }
+                }
+                $value['gejala'][0]=array_values($value['gejala'][0]);
+                array_push($basis_kasus,$value);
+            }
+            var_dump($basis_kasus);
+            
+        }
             
         foreach ($basis_kasus as $key => $value) {
             //ambil id gejala
@@ -244,10 +296,20 @@ class DiagnosaController extends CI_Controller {
             $search= array_search($id_gejala,$id_gejala_all);
             var_dump($search);
             if($search !== false){
+                //echo $id_gejala.'sdfs';
                 unset($basis_kasus[$key]);
+                //array_splice($basis_kasus,$key,1);
             }else{
-                $penyakit_kasus_updated = array_values($basis_kasus);
-                var_dump($penyakit_kasus_updated);
+                
+                $basis_kasus_new = $basis_kasus;
+                $cookie= array(
+                    'name'   => 'cookie_basis_kasus',
+                    'value'  => json_encode($basis_kasus_new),                            
+                    'expire' => '3600',                                                                                   
+                    'secure' => true
+                );
+                $this->input->set_cookie($cookie);
+                //var_dump($penyakit_kasus_updated);
                 return $value['gejala'][0];
                 break;
             }
@@ -280,7 +342,6 @@ class DiagnosaController extends CI_Controller {
         $gejala_selected = [];
         foreach ($basis_kasus_byid as $key => $value) {
             foreach ($array_id_gejala as $va) {
-                var_dump($va);
                 if($value['id_gejala'] === $va){
                     array_push($gejala_selected,$value);
                 }
