@@ -58,6 +58,11 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
                             Hama dan Penyakit
                         </a>
+                        <a class="nav-link" href="<?php echo base_url('Penyakit') ?>">
+                            <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
+                            Penyakit Kulit
+                        </a>
+
                         <!-- <a class="nav-link" href="<?php echo base_url('Solusi') ?>">
                                 <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
                                 Solusi
