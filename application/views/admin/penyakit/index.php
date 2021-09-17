@@ -1,13 +1,23 @@
-<?php $this->load->view('admin/template/header.php') ?>
 <div id="layoutSidenav_content">
   <main>
     <div class="container-fluid">
       <h1 class="mt-4"></h1>
       <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item"><a href="User">Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="<?php echo base_url("Admin") ?>">Dashboard</a></li>
         <li class="breadcrumb-item active">Penyakit Kulit</li>
       </ol>
       <div class="card mb-4">
+        <?php if ($this->session->flashdata('error_message') != null) : ?>
+          <div class="alert alert-danger" role="alert">
+            <?php echo $this->session->flashdata('error_message'); ?>
+          </div>
+        <?php endif ?>
+        <?php if ($this->session->flashdata('success_message') != null) : ?>
+          <div class="alert alert-success" role="alert">
+            <?php echo $this->session->flashdata('success_message'); ?>
+          </div>
+        <?php endif ?>
+
         <div class="card-header"><i class="fas fa-table mr-1"></i>Data Penyakit</div>
         <div class="card-body">
           <div class="table-responsive">
@@ -21,7 +31,7 @@
                   <td>ket_penyakit</td>
                   <td>Solusi</td>
                   <td>
-                    <a class="btn btn-success" href="<?php echo base_url("Penyakit/insert") ?>">Insert</a>
+                    <a class="btn btn-success" href="<?php echo base_url("PenyakitController/insert") ?>">Insert</a>
                   </td>
                 </tr>
               </thead>
@@ -31,14 +41,17 @@
                     <td><?php echo ++$key; ?></td>
                     <td><?php echo $value->kode_penyakit ?></td>
                     <td><?php echo $value->nama_penyakit ?></td>
-                    <td><?php echo $value->url_gambar ?></td>
+                    <td>
+                      <img src="<?php echo base_url() ?>/assets/upload/<?php echo $value->gambar ?>" alt="" width=100 height=100>
+
+                    </td>
                     <td><?php echo $value->ket_penyakit ?></td>
                     <td><?php echo $value->solusi ?></td>
 
                     <td>
-                      <a class="btn btn-sm btn-success" href="<?php echo base_url("Penyakit/update/" . $value->id_penyakit) ?>"><i class="fas fa-edit"></i></a>
-                      <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-delete" data-href="<?php echo base_url("Penyakit/delete/" . $value->id_penyakit) ?>">
-                        <i class="fa fa-trash"></i>
+                      <a class="btn btn-sm btn-primary" href="<?php echo base_url("PenyakitController/update/" . $value->id_penyakit) ?>"><i class="fas fa-edit"></i></a>
+                      <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-delete" data-href="<?php echo base_url("PenyakitController/delete/" . $value->id_penyakit) ?>">
+                        <i class="fas fa-trash"></i>
                       </button>
                     </td>
                   </tr>
@@ -69,7 +82,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
-          <a href="#" id="confirm-delete" class="btn btn-danger">Hapus</a>
+          <a href="<?php echo base_url("PenyakitController/delete/" . $value->id_penyakit) ?>" id="confirm-delete" class="btn btn-danger">Hapus</a>
         </div>
       </div>
     </div>
@@ -82,6 +95,7 @@
   </script>
   <!-- footer -->
   <?php $this->load->view('admin/template/footer.php') ?>
+
   <!-- end footer -->
 </div>
 </div>

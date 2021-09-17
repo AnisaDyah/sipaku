@@ -1,9 +1,8 @@
 <?php
-
+defined('BASEPATH') or exit('No direct script access allowed');
 class M_Penyakit extends CI_Model
 {
     var $table_name = "mst_penyakit";
-
 
     public function get()
     {
@@ -17,18 +16,11 @@ class M_Penyakit extends CI_Model
     {
         $this->db->select("*");
         $this->db->from($this->table_name);
-        $this->db->where("$id_penyakit", $id_penyakit);
+        $this->db->where("id_penyakit", $id_penyakit);
         $query = $this->db->get();
         return $query->row(0);
     }
-
-
-    public function input_data($data, $table)
-    {
-        $this->db->insert($table, $data);
-    }
-
-    public function insert($url_gambar)
+    public function insert($gambar)
     {
         $set = [
             'kode_penyakit' => $this->input->post('kode_penyakit'),
@@ -38,10 +30,10 @@ class M_Penyakit extends CI_Model
 
 
         ];
-        if ($url_gambar != "") {
-            $set['url_gambar'] = $url_gambar;
+        if ($gambar != "") {
+            $set['gambar'] = $gambar;
         } else {
-            $set['url_gambar'] = 'default.png';
+            $set['gambar'] = 'default.png';
         }
         $insert = $this->db->insert($this->table_name, $set);
         if ($insert) {
@@ -50,7 +42,7 @@ class M_Penyakit extends CI_Model
             $this->session->set_flashdata("error_message", "Data Gagal di Tambahkan");
         }
     }
-    public function update($id_penyakit, $url_gambar)
+    public function update($id_penyakit, $gambar)
     {
         $set = [
             'kode_penyakit' => $this->input->post('kode_penyakit'),
@@ -59,8 +51,8 @@ class M_Penyakit extends CI_Model
             'solusi' => $this->input->post('solusi'),
 
         ];
-        if ($url_gambar != "") {
-            $set['url_gambar'] = $url_gambar;
+        if ($gambar != "") {
+            $set['gambar'] = $gambar;
         }
         $this->db->where("id_penyakit", $id_penyakit);
         $update = $this->db->update($this->table_name, $set);
@@ -70,9 +62,14 @@ class M_Penyakit extends CI_Model
             $this->session->set_flashdata("error_message", "Data Gagal di Ubah");
         }
     }
-    function delete($id_penyakit)
+    public function delete($id_penyakit)
     {
-        $hasil = $this->db->query("DELETE FROM konsultasi WHERE id_penyakit ='$id_penyakit'");
-        return $hasil;
+        $this->db->where('id_penyakit', $id_penyakit);
+        $delete = $this->db->delete($this->table_name);
+        if ($delete) {
+            $this->session->set_flashdata("success_message", "Data Berhasil di Hapus");
+        } else {
+            $this->session->set_flashdata("error_message", "Data Gagal di Hapus");
+        }
     }
 }

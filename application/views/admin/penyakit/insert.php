@@ -1,69 +1,59 @@
-<?php $this->load->view('admin/template/header.php') ?>
 <div id="layoutSidenav_content">
   <main>
     <div class="container-fluid">
       <h1 class="mt-4"></h1>
       <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item"><a href="User">Dashboard</a></li>
-        <li class="breadcrumb-item active"><a href="Penyakit">Penyakit Kulit</a></li>
+        <li class="breadcrumb-item"><a href="<?php echo base_url("Admin") ?>">Dashboard</a></li>
+        <li class="breadcrumb-item active"><a href="<?php echo base_url("PenyakitController/index") ?>">Penyakit Kulit</a></li>
         <li class="breadcrumb-item active">Insert Penyakit Kulit</li>
       </ol>
       <div class="card mb-6">
-        <div class="card-header"><i class="fas fa-table mr-1"></i>Insert Penyakit</div>
-        <div class="card-body">
-          <div class="table-responsive">
-            <div class="modal-body">
-              <?php echo form_open('Penyakit/insert'); ?>
-
-              <div class="form-group">
-                <input type="hidden" name="kode_penyakit" value="<?php echo $kode_penyakit; ?>">
-                <label class="control-label col-xs-3">Kode Penyakit</label>
-                <div class="col-xs-8">
-                  <input name="nama_penyakit" class="form-control" type="text" placeholder="Masukkan Kode Penyakit" required>
-                </div>
-              </div>
-              <div class="form-group">
-                <input type="hidden" name="nama_penyakit" value="<?php echo $nama_penyakit; ?>">
-                <label class="control-label col-xs-3">Nama Penyakit</label>
-                <div class="col-xs-8">
-                  <input name="nama_penyakit" class="form-control" type="text" placeholder="Masukkan Nama Penyakit" required>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label col-xs-3">Gambar</label>
-                <div class="custom-file">
-                  <input type="file" class="custom-file-input" name="url_gambar" required>
-                  <label class="custom-file-label" for="input-gambar">Unggah Gambar</label>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label col-xs-3">Keterangan penyakit</label>
-                <div class="col-xs-8">
-                  <textarea name="ket_penyakit" class="form-control" rows="3" required></textarea>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label col-xs-3">Solusi Pengendalian</label>
-                <div class="col-xs-8">
-                  <textarea name="solusi" class="form-control" rows="3" required></textarea>
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-
-              <button class="btn btn-danger" type="reset">Cancel</button>
-              <button class="btn btn-info " type="submit">Simpan</button>
-
-            </div>
-            <?php echo form_close() ?>
-
-          </div>
+        <?php echo form_open_multipart("", array("id" => "form-input")); ?>
+        <div class="form-group">
+          <label for="input-kode_penyakit" class="form-control-label">Kode Penyakit</label>
+          <input type="text" id="input-kode_penyakit" name="kode_penyakit" placeholder="Masukan kode_penyakit" class="form-control" value="<?php echo set_value("kode_penyakit") ?>">
+          <?php echo form_error("kode_penyakit") ?>
         </div>
+        <div class="form-group">
+          <label for="input-nama_penyakit" class="form-control-label">Nama Penyakit</label>
+          <input type="text" id="input-nama_penyakit" name="nama_penyakit" placeholder="Masukan nama_penyakit" class="form-control" value="<?php echo set_value("nama_penyakit") ?>">
+          <?php echo form_error("nama_penyakit") ?>
+        </div>
+
+        <div class="form-group">
+          <label for="input-ket_penyakit" class="form-control-label">Keterangan</label>
+          <textarea class="form-control" name="ket_penyakit" rows="3" placeholder="Masukan Keterangan Penyakit" value="<?php echo set_value("ket_penyakit") ?>"></textarea>
+          <?php echo form_error("konten") ?>
+        </div>
+        <div class="form-group">
+          <label for="input-solusi" class="form-control-label">Solusi</label>
+          <textarea class="form-control" name="solusi" rows="3" placeholder="Masukan Solusi" value="<?php echo set_value("solusi") ?>"></textarea>
+          <?php echo form_error("solusi") ?>
+        </div>
+        <div class="form-group">
+          <label for="input-gambar" class="form-control-label">Gambar</label>
+          <input type="file" name="gambar" class="form-control">
+          <?php echo (isset($error) ? $error : "") ?>
+        </div>
+
+
+        <?php echo form_close(); ?>
+      </div>
+
+      <div class="card-footer">
+        <button type="submit" class="btn btn-primary btn-sm" form="form-input">
+          <i class="fa fa-dot-circle-o"></i> Submit
+        </button>
+        <a href="<?php echo base_url($c_name) ?>" class="btn btn-danger btn-sm">
+          <i class="fa fa-ban"></i> Cancel
+        </a>
       </div>
     </div>
-  </main>
 
-  <!-- footer -->
+
+
+  </main>
   <?php $this->load->view('admin/template/footer.php') ?>
+
   <!-- end footer -->
 </div>

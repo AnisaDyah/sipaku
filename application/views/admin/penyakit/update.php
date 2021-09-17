@@ -1,34 +1,61 @@
-<?php $this->load->view('admin/template/header.php') ?>
+<div id="layoutSidenav_content">
+  <main>
+    <div class="container-fluid">
+      <h1 class="mt-4"></h1>
+      <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="<?php echo base_url("Admin") ?>">Dashboard</a></li>
+        <li class="breadcrumb-item active"><a href="<?php echo base_url("PenyakitController/index") ?>">Penyakit Kulit</a></li>
+        <li class="breadcrumb-item active">Update Penyakit Kulit</li>
+      </ol>
+      <div class="card mb-6">
+        <?php echo form_open_multipart("", array("id" => "form-input")); ?>
+        <div class="form-group">
+          <label for="input-kode_penyakit" class="form-control-label">Kode Penyakit</label>
+          <input type="text" id="input-kode_penyakit" name="kode_penyakit" class="form-control" value="<?php echo $penyakit->kode_penyakit ?>">
+          <?php echo form_error("kode_penyakit") ?>
+        </div>
+        <div class="form-group">
+          <label for="input-nama_penyakit" class="form-control-label">Nama Penyakit</label>
+          <input type="text" id="input-nama_penyakit" name="nama_penyakit" class="form-control" value="<?php echo $penyakit->nama_penyakit ?>">
+          <?php echo form_error("nama_penyakit") ?>
+        </div>
+        <div class="form-group">
+          <label for="input-ket_penyakit" class="form-control-label">Keterangan</label>
+          <textarea class="form-control" name="ket_penyakit" rows="3"><?php echo $penyakit->ket_penyakit ?></textarea>
+          <?php echo form_error("ket_penyakit") ?>
+        </div>
+        <div class="form-group">
+          <label for="input-solusi" class="form-control-label">Solusi</label>
+          <textarea class="form-control" name="solusi" rows="3"><?php echo $penyakit->solusi ?></textarea>
+          <?php echo form_error("solusi") ?>
+        </div>
+        <div class="form-group">
+          <label for="input-gambar" class="form-control-label">Gambar</label>
+          <input type="file" name="gambar" class="form-control" value="<?php echo $penyakit->gambar ?>">
+          <?php echo (isset($error) ? $error : "") ?>
+        </div>
 
-<!-- page content -->
-<div class="right_col">
-  <div class="container">
-    <br /><br /><br />
-    <legend>Edit Data penyakit</legend>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-      <?php echo form_open('penyakit/update/' . $penyakit->id_penyakit); ?>
-      <?php echo form_hidden('id_penyakit', $penyakit->id_penyakit) ?>
 
-      <div class="form-group">
-        <label for="nama">Nama penyakit</label>
-        <input type="text" class="form-control" id="nama" name="nama" value="<?php echo $penyakit->nama ?>">
+        <?php echo form_close(); ?>
       </div>
-      <div class="form-group">
-        <label> Status </label>
-        <select class="form-control" name="status" id="status">
-          <option selected> <?php echo $penyakit->status ?></option>
-          <option value="aktif">Aktif</option>
-          <option value="dikunci">Kunci</option>
-        </select>
+
+
+
+      <div class="card-footer">
+        <button type="submit" class="btn btn-primary btn-sm" form="form-input">
+          <i class="fa fa-dot-circle-o"></i> Submit
+        </button>
+        <a href="<?php echo base_url($c_name) ?>" class="btn btn-secondary btn-sm">
+          <i class="fa fa-ban"></i> Cancel
+        </a>
       </div>
-
-
-      <a class="btn btn-info" href="<?php echo base_url('penyakit/index') ?>">Kembali</a>
-      <button type="submit" class="btn btn-primary">OK</button>
-      <?php echo form_close(); ?>
     </div>
-  </div>
-</div>
-<!-- /page content -->
 
-<?php $this->load->view('admin/template/footer.php') ?>
+
+
+  </main>
+  <?php $this->load->view('admin/template/footer.php') ?>
+
+  <!-- end footer -->
+
+</div>
