@@ -71,14 +71,14 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-database"></i></div>
                             Basis Kasus
                         </a>
-                        <a class="nav-link" href="<?php echo base_url('Riwayatdiagnosa') ?>">
+                        <a class="nav-link" href="<?php echo base_url('RiwayatDiagnosaController') ?>">
                             <div class="sb-nav-link-icon"><i class="fas fa-archive"></i></div>
                             Riwayat Diagnosa
                         </a>
-                        <a class="nav-link" href="<?php echo base_url('Revisi') ?>">
+                        <!-- <a class="nav-link" href="<?php echo base_url('Revisi') ?>">
                             <div class="sb-nav-link-icon"><i class="fas fa-question-circle"></i></div>
                             Revisi
-                        </a>
+                        </a> -->
                     </div>
                 </div>
             </nav>

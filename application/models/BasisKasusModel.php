@@ -48,6 +48,18 @@ class BasisKasusModel extends CI_Model
 		}
 		$insert_detail_diagnosa = $this->db->insert_batch("detail_diagnosa", $data_insert);
         
+	}
+	
+	public function riwayat_diagnosa()
+	{
+		//script buat joinin tabel biar bisa berelasi dengan tabel penyakit dan bisa munculin nama penyakitnya
+		$db_kasus = $this->db
+			->select('*')
+			//->selectRaw("diagnosa.*, mst_penyakit.*, user.*")
+			->join('mst_penyakit', 'mst_penyakit.id_penyakit = diagnosa.id_penyakit')
+			->join('user', 'user.id_user = diagnosa.id_user')
+			->get('diagnosa');
+		return $db_kasus;
     }
  
 }

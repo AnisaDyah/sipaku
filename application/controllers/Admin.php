@@ -14,8 +14,7 @@ class Admin extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('admin/home');
-		var_dump($this->session->userdata());
-		//coaba comiit lagi
+		//var_dump($this->session->userdata());
 	}
 	
 	function clear_cache()
