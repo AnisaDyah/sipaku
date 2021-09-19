@@ -32,26 +32,22 @@ class BasisKasusModel extends CI_Model
 			->get('basis_kasus')->result_array();
 
 		return $basis_kasus;
+	}
+	
+	public function insert_hasil_diagnosa($diagnosa, $detail)
+    {
+		$insert_diagnosa = $this->db->insert("diagnosa", $diagnosa);
+		$data_insert=array();
+		foreach ($detail as $value) {
+			//var_dump($value);
+			$data = array(
+				'id_diagnosa' => $this->db->insert_id(),
+				'id_gejala' => $value->id_gejala,
+			);
+			array_push($data_insert,$data);
+		}
+		$insert_detail_diagnosa = $this->db->insert_batch("detail_diagnosa", $data_insert);
+        
     }
-
-	// public function diagnosa()
-	// {
-    //     return $this->db->get('gejala');
-    // }  
-    
-    // public function getDetail()
-	// {
-	// 	$query = $this->db->query("SELECT * FROM detail_kasus inner join bobot on detail_kasus.fk_bobot = bobot.id_bobot");
-	// 	return $query->result();
-	// }
-
-	// public function joinPerhitungan()
-	// {
-	// 	//script buat joinin tabel biar bisa berelasi dengan tabel penyakit dan bisa munculin nama penyakitnya
-	// 	$db_kasus = $this->db
-	// 		->select('*')
-    //         ->join('hamapenyakit', 'basiskasus.fk_hamapenyakit = hamapenyakit.id_hamapenyakit')
-	// 		->get('basiskasus');
-	// 	return $db_kasus->result();
-	// }   
+ 
 }

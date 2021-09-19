@@ -11,7 +11,9 @@ class Login extends CI_Controller {
 
 	public function index()
 	{
-        $this->load->view('login');
+		$this->load->view('header');
+		$this->load->view('login');
+		$this->load->view('footer');
     }
 
 	public function aksi_login()
@@ -25,14 +27,21 @@ class Login extends CI_Controller {
 		$cek = $this->M_login->cek_login("user",$where)->num_rows();
 		if($cek > 0)
 		{
+			$data_user = $this->M_login->cek_login("user",$where)->result_array();
 			$data_session = array(
+				'id_user' => $data_user[0]['id_user'],
 				'nama' => $username,
 				'status' => "login"
 				);
 
 			$this->session->set_userdata($data_session);
 
-			redirect(base_url("Admin"));
+			if($data_user[0]['id_akses'] == 1){
+				redirect(base_url("Admin"));
+			}else{
+				redirect(base_url("DiagnosaController"));
+			}
+
 
 		}else{
 			echo "Username dan password salah !";

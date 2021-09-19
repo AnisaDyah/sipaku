@@ -29,7 +29,7 @@
                     <i class="fas fa-user fa-fw"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                    <a class="dropdown-item" href="<?php echo base_url('Dashboard') ?>">Logout</a>
+                    <a class="dropdown-item" href="<?php echo base_url('Login/logout') ?>">Logout</a>
                 </div>
             </li>
         </ul>

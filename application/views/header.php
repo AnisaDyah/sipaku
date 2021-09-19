@@ -33,3 +33,26 @@
 </head>
 
 <!-- ============================================-->
+<body>
+	<!-- ===============================================-->
+	<!--    Main Content-->
+	<!-- ===============================================-->
+	<main class="main" id="top">
+		<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" data-navbar-on-scroll="data-navbar-on-scroll">
+			<div class="container"><a class="navbar-brand d-flex align-items-center fw-bold fs-2" href="#">
+					<img class="d-inline-block me-3" src="<?php echo base_url('assets_home/public/assets/img/logo.png') ?>" alt="" />SIPAKU</a>
+				<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+				<div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+					<ul class="navbar-nav ms-auto pt-2 pt-lg-0">
+
+						<li class="nav-item"><a class="nav-link" href="index.php">HOME</a></li>
+						<!-- <li class="nav-item" data-toggle="modal" data-target="#login-modal">LOGIN</li> -->
+                        <?php if($this->session->userdata('status') != "login") {?>
+						<li class="nav-item"><a class="nav-link" href="#login">LOGIN</a></li>
+                        <?php } else { ?>
+                            <li class="nav-item"><a class="nav-link" href="<?php echo base_url('Login/logout') ?>">LOGOUT</a></li>
+                        <?php } ?>
+					</ul>
+				</div>
+			</div>
+		</nav>

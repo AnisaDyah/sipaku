@@ -70,7 +70,7 @@
 									<h2 class="fw-bold lh-base text-center text-white">PLEASE LOGIN !</h2>
 									<hr class="mx-auto" style="height:2px;width:350px" />
 
-									<form action="<?php echo site_url('Admin') ?>" method="post">
+									<form action="<?php echo base_url('Login/aksi_login') ?>" method="post">
 
 										<div class="form-group">
 											<div class="row justify-content-center">
