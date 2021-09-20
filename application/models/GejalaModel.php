@@ -2,34 +2,74 @@
 
 class GejalaModel extends CI_Model
 {
-    public function tampil_gejala()
-    {
-		$hasil=$this->db->query("SELECT * FROM mst_gejala ORDER BY 'ASC' ");
+	var $table_name = "mst_gejala";
+
+	public function tampil_gejala()
+	{
+		$hasil = $this->db->query("SELECT * FROM mst_gejala ORDER BY 'ASC' ");
 		return $hasil;
-    }
-    
-    public function get_id_gejala($id_gejala)
-    {
-		$id_gejala=$this->db->query("SELECT id_gejala FROM mst_gejala where id_gejala='$id_gejala'");
-		return $id_gejala;
 	}
 
-    // public function simpan_gejala($kd_gejala,$nama_gejala)
-    // {
-	// 	$hasil=$this->db->query("INSERT INTO gejala (kd_gejala,nama_gejala) VALUES ('$kd_gejala','$nama_gejala')");
-	// 	return $hasil;
-	// }
+	public function get()
+	{
+		$this->db->select("*");
+		$this->db->from($this->table_name);
+		$query = $this->db->get();
+		return $query->result();
+	}
 
-	// public function edit_gejala($id_gejala,$kd_gejala,$nama_gejala)
-    // {
-	// 	$hasil=$this->db->query("UPDATE gejala SET kd_gejala='$kd_gejala', nama_gejala='$nama_gejala' WHERE id_gejala='$id_gejala'");
-	// 	return $hasil;
-	// }
-	
-	// public function hapus_gejala($kd_gejala)
-    // {
-	// 	$hasil=$this->db->query("DELETE FROM gejala WHERE kd_gejala ='$kd_gejala'");
-	// 	return $hasil;
-    // }
+	public function get_id_gejala($id_gejala)
+	{
+		$id_gejala = $this->db->query("SELECT id_gejala FROM mst_gejala where id_gejala='$id_gejala'");
+		return $id_gejala;
+	}
+	public function get_id($id_gejala)
+	{
+		$this->db->select("*");
+		$this->db->from($this->table_name);
+		$this->db->where("id_gejala", $id_gejala);
+		$query = $this->db->get();
+		return $query->row(0);
+	}
+
+	public function insert()
+	{
+		$set = [
+			'kode_gejala' => $this->input->post('kode_gejala'),
+			'nama_gejala' => $this->input->post('nama_gejala'),
+			'ket_gejala' => $this->input->post('ket_gejala')
+		];
+		$insert = $this->db->insert($this->table_name, $set);
+		if ($insert) {
+			$this->session->set_flashdata("success_message", "Data Berhasil di Tambahkan");
+		} else {
+			$this->session->set_flashdata("error_message", "Data Gagal di Tambahkan");
+		}
+	}
+	public function update($id_gejala)
+	{
+		$set = [
+			'kode_gejala' => $this->input->post('kode_gejala'),
+			'nama_gejala' => $this->input->post('nama_gejala'),
+			'ket_gejala' => $this->input->post('ket_gejala')
+		];
+
+		$this->db->where("id_gejala", $id_gejala);
+		$update = $this->db->update($this->table_name, $set);
+		if ($update) {
+			$this->session->set_flashdata("success_message", "Data Berhasil di Ubah");
+		} else {
+			$this->session->set_flashdata("error_message", "Data Gagal di Ubah");
+		}
+	}
+	public function delete($id_gejala)
+	{
+		$this->db->where('id_gejala', $id_gejala);
+		$delete = $this->db->delete($this->table_name);
+		if ($delete) {
+			$this->session->set_flashdata("success_message", "Data Berhasil di Hapus");
+		} else {
+			$this->session->set_flashdata("error_message", "Data Gagal di Hapus");
+		}
+	}
 }
-?>

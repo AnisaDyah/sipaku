@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-class M_Penyakit extends CI_Model
+class PenyakitModel extends CI_Model
 {
     var $table_name = "mst_penyakit";
 

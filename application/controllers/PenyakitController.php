@@ -8,7 +8,7 @@ class PenyakitController extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('M_Penyakit');
+		$this->load->model('PenyakitModel');
 		$this->load->library('form_validation');
 	}
 	public function index()
@@ -16,7 +16,7 @@ class PenyakitController extends CI_Controller
 		$dataheader = [];
 		$data = [
 			'c_name' => $this->c_name,
-			'data' => $this->M_Penyakit->get(),
+			'data' => $this->PenyakitModel->get(),
 		];
 
 
@@ -65,7 +65,7 @@ class PenyakitController extends CI_Controller
 				$this->load->view('admin/template/header', $dataheader);
 				$this->load->view('admin/penyakit/insert', $data);
 			} else {
-				$this->M_Penyakit->insert($gambar);
+				$this->PenyakitModel->insert($gambar);
 				redirect($this->c_name, 'refresh');
 			}
 		}
@@ -75,12 +75,8 @@ class PenyakitController extends CI_Controller
 		$dataheader = [];
 		$data = [
 			'c_name' => $this->c_name,
-			'penyakit' => $this->M_Penyakit->get_id($id_penyakit),
+			'penyakit' => $this->PenyakitModel->get_id($id_penyakit),
 		];
-
-
-
-
 		$this->form_validation->set_rules('kode_penyakit', "kode_penyakit", "required");
 		$this->form_validation->set_rules('nama_penyakit', "nama_penyakit", "required");
 		$this->form_validation->set_rules('ket_penyakit', "ket_penyakit", "required");
@@ -115,14 +111,14 @@ class PenyakitController extends CI_Controller
 				$this->load->view('admin/template/header', $dataheader);
 				$this->load->view('admin/penyakit/update', $data);
 			} else {
-				$this->M_Penyakit->update($id_penyakit, $gambar);
+				$this->PenyakitModel->update($id_penyakit, $gambar);
 				redirect($this->c_name, 'refresh');
 			}
 		}
 	}
 	public function delete($id_penyakit)
 	{
-		$this->M_Penyakit->delete($id_penyakit);
+		$this->PenyakitModel->delete($id_penyakit);
 		redirect($this->c_name, 'refresh');
 	}
 }

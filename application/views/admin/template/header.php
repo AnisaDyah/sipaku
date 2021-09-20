@@ -46,17 +46,13 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Dashboard
                         </a>
-                        <!-- <a class="nav-link" href="<?php echo base_url('Users') ?>">
-                                <div class="sb-nav-link-icon"><i class="fas fa-user-circle"></i></div>
-                                Pengguna
-                            </a> -->
-                        <a class="nav-link" href="<?php echo base_url('Gejala') ?>">
+                        <a class="nav-link" href="<?php echo base_url('UserController') ?>">
+                            <div class="sb-nav-link-icon"><i class="fas fa-user-circle"></i></div>
+                            Users
+                        </a>
+                        <a class="nav-link" href="<?php echo base_url('GejalaController') ?>">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Gejala
-                        </a>
-                        <a class="nav-link" href="<?php echo base_url('Hamapenyakit') ?>">
-                            <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
-                            Hama dan Penyakit
                         </a>
                         <a class="nav-link" href="<?php echo base_url('PenyakitController') ?>">
                             <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
@@ -71,6 +67,11 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-database"></i></div>
                             Basis Kasus
                         </a>
+                        <a class="nav-link" href="<?php echo base_url('KasusController') ?>">
+                            <div class="sb-nav-link-icon"><i class="fas fa-database"></i></div>
+                            Kasus Penyakit Kulit
+                        </a>
+
                         <a class="nav-link" href="<?php echo base_url('RiwayatDiagnosaController') ?>">
                             <div class="sb-nav-link-icon"><i class="fas fa-archive"></i></div>
                             Riwayat Diagnosa
