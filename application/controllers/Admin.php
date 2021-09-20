@@ -9,6 +9,9 @@ class Admin extends CI_Controller {
 		if($this->session->userdata('status') != "login"){
 			redirect(base_url("Login"));
 		}
+		$this->load->model('PenyakitModel');
+		$this->load->model('GejalaModel');
+		$this->load->model('BasisKasusModel');
 	}
     
 	public function index()

@@ -18,7 +18,8 @@
             <div class="row">
                 <div class="col-xl-3 col-md-6">
                     <div class="card bg-primary text-white mb-4">
-                        <div class="card-body">Penyakit Kulit</div>
+                        <?php $penyakit=$this->PenyakitModel->getTotal(); ?>
+                        <div class="card-body">Penyakit Kulit &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b> <?php echo $penyakit ?> </b></div>
                         <div class="card-footer d-flex align-items-center justify-content-between">
                             <a class="small text-white stretched-link" href="<?php echo base_url('PenyakitController') ?>">View Details</a>
                             <div class="small text-white"><i class="fas fa-angle-right"></i></div>
@@ -27,7 +28,8 @@
                 </div>
                 <div class="col-xl-3 col-md-6">
                     <div class="card bg-warning text-white mb-4">
-                        <div class="card-body">Gejala</div>
+                    <?php $gejala=$this->GejalaModel->getTotal(); ?>
+                    <div class="card-body">Gejala &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b> <?php echo $gejala ?> </b></div>
                         <div class="card-footer d-flex align-items-center justify-content-between">
                             <a class="small text-white stretched-link" href="<?php echo base_url('GejalaController') ?>">View Details</a>
                             <div class="small text-white"><i class="fas fa-angle-right"></i></div>
@@ -36,7 +38,8 @@
                 </div>
                 <div class="col-xl-3 col-md-6">
                     <div class="card bg-success text-white mb-4">
-                        <div class="card-body">Basis Kasus</div>
+                    <?php $rule=$this->PenyakitModel->getTotal(); ?>
+                    <div class="card-body">Rule Pakar &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b> <?php echo $rule ?> </b></div>
                         <div class="card-footer d-flex align-items-center justify-content-between">
                             <a class="small text-white stretched-link" href="<?php echo base_url('Basis') ?>">View Details</a>
                             <div class="small text-white"><i class="fas fa-angle-right"></i></div>
@@ -45,9 +48,10 @@
                 </div>
                 <div class="col-xl-3 col-md-6">
                     <div class="card bg-danger text-white mb-4">
-                        <div class="card-body">Riwayat Diagnosa</div>
+                    <?php $riwayat=$this->BasisKasusModel->getTotal(); ?>
+                    <div class="card-body">Riwayat Diagnosa &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b> <?php echo $riwayat ?> </b></div>
                         <div class="card-footer d-flex align-items-center justify-content-between">
-                            <a class="small text-white stretched-link" href="<?php echo base_url('Riwayatdiagnosa') ?>">View Details</a>
+                            <a class="small text-white stretched-link" href="<?php echo base_url('RiwayatDiagnosaController') ?>">View Details</a>
                             <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                         </div>
                     </div>

@@ -60,4 +60,22 @@ class BasisKasusModel extends CI_Model
 			->get('diagnosa');
 		return $db_kasus;
 	}
+
+	//export excel
+	public function export_diagnosa($tgl_awal, $tgl_akhir)
+	{
+		$db_diagnosa = $this->db
+		->select('*')
+		->join('mst_penyakit', 'mst_penyakit.id_penyakit = diagnosa.id_penyakit')
+		->join('user', 'user.id_user = diagnosa.id_user')
+		->where('tgl_diagnosa BETWEEN "'.$tgl_awal.'" AND "'.$tgl_akhir.'"')
+		->order_by('tgl_diagnosa', 'ASC')
+		->get('diagnosa')->result();
+		return $db_diagnosa;
+	}
+	
+	public function getTotal()
+    {
+        return $this->db->count_all('diagnosa');
+    }
 }

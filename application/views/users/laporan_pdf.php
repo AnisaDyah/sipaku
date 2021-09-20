@@ -25,7 +25,7 @@
                     <p style="text-align: left;">Alamat &nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;<strong> <?= $user['alamat'] ?></p>
                     <p style="text-align: left;">Umur &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;<strong> <?= $user['umur'] ?> Tahun</p>
                     <p style="text-align: left;">No. Telp &nbsp;&nbsp; : &nbsp;<strong> <?= $user['no_hp'] ?></p>
-                    
+
     <h4 class="fw-bold lh-base text-center text-white" style="text-align: center;">Hasil Diagnosa</h4>
     <hr class="mx-auto" style="height:2px;width:350px;">
     <div class="form-group">
@@ -41,7 +41,7 @@
                 <h4 class="fw-bold lh-base text-white">Dengan Prosentase Kemungkinan Sebesar :
                     <?= $penyakit_terpilih->perhitungan_fc ?> %</h4>
                 <h4 class="fw-bold lh-base text-white">Saran Pengobatan yang harus dilakukan adalah :<br>
-                    <?= $penyakit_terpilih->saran_pengobatan ?>
+                    <?= $penyakit_terpilih->solusi ?>
                 </h4>
             </div>
         </div>

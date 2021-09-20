@@ -11,7 +11,7 @@ class DiagnosaController extends CI_Controller {
 		}
         $this->load->model('GejalaModel');
         $this->load->model('BasisKasusModel');
-        $this->load->model('M_Penyakit');
+        $this->load->model('PenyakitModel');
         $this->load->library('session');
         $this->load->library('pdf');
         $this->data = array(
@@ -97,7 +97,7 @@ class DiagnosaController extends CI_Controller {
         //var_dump($data_ketemu);
 
         if(count($data_ketemu) >0){
-            $penyakit_terpilih = $this->M_Penyakit->get_id($maxKey);
+            $penyakit_terpilih = $this->PenyakitModel->get_id($maxKey);
             $penyakit_terpilih->perhitungan_fc=$maksimal;
             $penyakit_terpilih->gejala_selected=$gejala_selected_all[$maxKey];
         

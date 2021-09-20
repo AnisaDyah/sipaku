@@ -18,12 +18,48 @@
 <script src="<?php echo base_url('assets/') ?>demo/chart-bar-demo.js"></script>
 <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
 <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+<script src="<?php echo base_url('assets/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') ?>"></script>
 <script src="<?php echo base_url('assets/') ?>demo/datatables-demo.js"></script>
 <script>
     $(document).ready(function() {
         $('#mydata').DataTable();
     });
 </script>
+ <script>
+    $(function () {
+    //Date picker
+    $('#datepicker').datepicker({
+      autoclose: true,
+      format: 'yyyy-mm-dd'
+    })
+
+    $('#datepicker2').datepicker({
+      autoclose: true,
+      format: 'yyyy-mm-dd'
+    })
+
+    $('#datepicker3').datepicker({
+      autoclose: true,
+      format: 'yyyy-mm-dd'
+    })
+
+    //Date picker Bulan
+    $('#datepickerbulan').datepicker({
+      autoclose: true,
+      format: 'M yyyy'
+    })
+
+    $('#datepickerbulan2').datepicker({
+      autoclose: true,
+      format: 'M yyyy'
+    })
+    $('#datepickerbulan3').datepicker({
+      autoclose: true,
+      format: 'M yyyy'
+    })
+
+    
+  })</script>
 </body>
 
 </html>

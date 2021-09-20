@@ -72,4 +72,9 @@ class PenyakitModel extends CI_Model
             $this->session->set_flashdata("error_message", "Data Gagal di Hapus");
         }
     }
+
+    public function getTotal()
+    {
+        return $this->db->count_all('mst_penyakit');
+    }
 }
