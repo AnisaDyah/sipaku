@@ -14,21 +14,21 @@
     <link href="<?php echo base_url('assets/img/favicons/favicons.ico') ?>" rel="shortcut icon" type="image/x-icon">
     <link rel="stylesheet" href="<?php echo base_url('assets/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/styles.css') ?>">
-    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+    <link href="<?php echo base_url('assets/css/dataTables.bootstrap4.min.css') ?>" rel="stylesheet" crossorigin="anonymous" />
+    <script src="<?php echo base_url('assets/ajax/libs/font-awesome/5.11.2/js/all.min.js') ?>" crossorigin="anonymous"></script>
 </head>
 
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <a class="navbar-brand" href="<?php echo base_url('Admin') ?>">  <img class="d-inline-block me-3" src="<?php echo base_url('assets_home/public/assets/img/logo.png') ?>" alt="" />&nbsp;&nbsp;&nbsp;S I P A K U</a>
-       
+        <a class="navbar-brand" href="<?php echo base_url('Admin') ?>"> <img class="d-inline-block me-3" src="<?php echo base_url('assets_home/public/assets/img/logo.png') ?>" alt="" />&nbsp;&nbsp;&nbsp;S I P A K U</a>
+
         <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
         <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
         </form>
         <ul class="navbar-nav ml-auto ml-md-0">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="<?php echo base_url('assets/img/icon_dokter2.png')?>" width="50" height="50">
+                    <img src="<?php echo base_url('assets/img/icon_dokter2.png') ?>" width="50" height="50">
                     <!-- <i class="fas fa-user fa-fw"></i> -->
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
@@ -47,7 +47,7 @@
                         <div class="sb-sidenav-menu-heading">
 
                             <!-- menu profile quick info -->
-                            <center><img src="<?php echo base_url('assets/img/icon_dokter2.png')?>" width="100" height="100"></center>
+                            <center><img src="<?php echo base_url('assets/img/icon_dokter2.png') ?>" width="100" height="100"></center>
                             <div class="profile clearfix">
                                 <center>
                                     <div class="profile_info">
@@ -55,7 +55,7 @@
                                     </div>
                                 </center>
                             </div>
-                         </div>
+                        </div>
                         <a class="nav-link" href="<?php echo base_url('Admin') ?>">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Dashboard

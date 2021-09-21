@@ -1,32 +1,32 @@
 <!-- footer -->
 <footer class="py-4 bg-light mt-auto">
-    <div class="container-fluid">
-        <div class="d-flex align-items-center justify-content-between small">
-            <div class="text-muted">Copyright &copy; SISTEM PAKAR PENYAKIT KULIT 2021</div>
-        </div>
+  <div class="container-fluid">
+    <div class="d-flex align-items-center justify-content-between small">
+      <div class="text-muted">Copyright &copy; SISTEM PAKAR PENYAKIT KULIT 2021</div>
     </div>
+  </div>
 </footer>
 <!-- end footer -->
 </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-<script src="<?php echo base_url('assets/') ?>js/scripts.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-<script src="<?php echo base_url('assets/') ?>demo/chart-area-demo.js"></script>
-<script src="<?php echo base_url('assets/') ?>demo/chart-bar-demo.js"></script>
-<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
-<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+<script src=" <?php echo base_url('assets/jquery-3.4.1.min.js') ?>" crossorigin="anonymous"></script>
+<script src="<?php echo base_url('assets/bootstrap/4.3.1/js/bootstrap.bundle.min.js') ?>" crossorigin="anonymous"></script>
+<script src="<?php echo base_url('assets/js/scripts.js') ?>"></script>
+<script src="<?php echo base_url('assets/ajax/libs/Chart.js/2.8.0/Chart.min.js') ?>" crossorigin="anonymous"></script>
+<script src="<?php echo base_url('assets/demo/chart-area-demo.js') ?>"></script>
+<script src="<?php echo base_url('assets/demo/chart-bar-demo.js') ?>"></script>
+<script src="<?php echo base_url('assets/js/jquery.dataTables.min.js') ?>" crossorigin="anonymous"></script>
+<script src="<?php echo base_url('assets/js/dataTables.bootstrap4.min.js') ?>" crossorigin="anonymous"></script>
 <script src="<?php echo base_url('assets/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') ?>"></script>
-<script src="<?php echo base_url('assets/') ?>demo/datatables-demo.js"></script>
+<script src="<?php echo base_url('assets/demo/datatables-demo.js') ?>"></script>
 <script>
-    $(document).ready(function() {
-        $('#mydata').DataTable();
-    });
+  $(document).ready(function() {
+    $('#mydata').DataTable();
+  });
 </script>
- <script>
-    $(function () {
+<script>
+  $(function() {
     //Date picker
     $('#datepicker').datepicker({
       autoclose: true,
@@ -58,8 +58,9 @@
       format: 'M yyyy'
     })
 
-    
-  })</script>
+
+  })
+</script>
 </body>
 
 </html>
