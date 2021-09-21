@@ -23,7 +23,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/Sipaku/';
+$config['base_url'] = 'http://localhost/sipaku/';
 
 /*
 |--------------------------------------------------------------------------
@@ -186,6 +186,17 @@ $config['enable_query_strings'] = FALSE;
 $config['controller_trigger'] = 'c';
 $config['function_trigger'] = 'm';
 $config['directory_trigger'] = 'd';
+$config['global_xss_filtering'] = TRUE;
+$config['sess_cookie_name']  = 'ci_session';
+$config['sess_expiration']  = 3600;
+$config['sess_encrypt_cookie'] = TRUE;
+$config['sess_use_database'] = TRUE;
+$config['sess_table_name']  = 'sessions';
+$config['sess_match_ip']  =  FALSE;
+$config['sess_match_useragent'] = TRUE;
+$config['cookie_domain'] = '';
+$config['cookie_path'] = '/';
+$config['sess_expire_on_close'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------
