@@ -158,7 +158,7 @@ class DiagnosaController extends CI_Controller {
         $this->insert_hasil_diagnosa($data_diagnosa);
         $data = array(
             "user" => array(
-                "username" => $data_user[0]['username'],
+                "nama_lengkap" => $data_user[0]['nama_lengkap'],
                 "alamat" => $data_user[0]['alamat'],
                 "no_hp" => $data_user[0]['no_hp'],
                 "umur" => $umur,

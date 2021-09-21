@@ -21,7 +21,7 @@
             </tr>
             </tbody>
     </table>
-                    <p style="text-align: left;">Nama &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;<strong> <?= $user['username'] ?></p>
+                    <p style="text-align: left;">Nama &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;<strong> <?= $user['nama_lengkap'] ?></p>
                     <p style="text-align: left;">Alamat &nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;<strong> <?= $user['alamat'] ?></p>
                     <p style="text-align: left;">Umur &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;<strong> <?= $user['umur'] ?> Tahun</p>
                     <p style="text-align: left;">No. Telp &nbsp;&nbsp; : &nbsp;<strong> <?= $user['no_hp'] ?></p>

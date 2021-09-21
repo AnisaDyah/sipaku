@@ -15,9 +15,15 @@ class M_login extends CI_Model
         $set = [
             'username' => $this->input->post('username'),
             'password' => md5($this->input->post('password')),
-            'alamat' => $this->input->post('alamat')
+            'alamat' => $this->input->post('alamat'),
+            'fk_akses' => 2,
+            'no_hp' => $this->input->post('no_hp'),
+            'tgl_lahir' => $this->input->post('tgl_lahir'),
+            'nama_lengkap' => $this->input->post('nama_lengkap'),
+
         ];
         $insert = $this->db->insert($this->table_name, $set);
+        //var_dump($this->db->error());
         if ($insert) {
             $this->session->set_flashdata("success_message", "Data Berhasil di Tambahkan");
         } else {

@@ -7,8 +7,20 @@
         <li class="breadcrumb-item active"><a href="<?php echo base_url("UserController/index") ?>">Users</a></li>
         <li class="breadcrumb-item active">Insert Users</li>
       </ol>
+      <?php $error = $this->session->flashdata('error');
+        if ($error) { ?>
+          <div class="alert alert-danger alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <?php echo $error; ?>
+          </div>
+        <?php } ?>
       <div class="card mb-6">
         <?php echo form_open_multipart("", array("id" => "form-input")); ?>
+        <div class="form-group">
+          <label for="input-nama-lengkap" class="form-control-label">Nama Lengkap</label>
+          <input type="text" id="input-nama-lengkap" name="nama_lengkap" placeholder="Masukan Nama Lengkap" class="form-control" value="<?php echo set_value("nama_lengkap") ?>">
+          <?php echo form_error("nama_lengkap") ?>
+        </div>
         <div class="form-group">
           <label for="input-username" class="form-control-label">Username</label>
           <input type="text" id="input-username" name="username" placeholder="Masukan Username" class="form-control" value="<?php echo set_value("username") ?>">
@@ -42,6 +54,15 @@
           <input type="tgl_lahir" id="datepicker" name="tgl_lahir" placeholder="YYYY-MM-DD" class="form-control" value="">
           <?php echo form_error("tgl_lahir") ?>
         </div>
+        <div class="form-group">
+          <label> Hak Akses </label>
+                <select class="form-control" name ="id_akses" id="id_akses"> 
+                <option selected> --Pilih Hak Kases-- </option>
+                <?php foreach ($hak_akses as $k) { ?>
+                <option value="<?php echo $k->id_akses?>"><?php echo $k->nama_akses?></option>
+              <?php } ?>
+              </select>
+          </div>
 
         <?php echo form_close(); ?>
       </div>

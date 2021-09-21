@@ -23,7 +23,7 @@
     <link href="<?php echo base_url('assets_home/public/assets/img/favicons/manifest.json') ?>" rel="manifest">
     <meta content="<?php echo base_url('assets_home/public/assets/img/favicons/mstile-150x150.png') ?>" name="msapplication-TileImage">
     <meta name="theme-color" content="#ffffff">
-    <link rel="stylesheet" href="<?php echo base_url('assets/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') ?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets_home/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/styles.css') ?>">
 
 
@@ -49,10 +49,10 @@
                 <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto pt-2 pt-lg-0">
 
-                        <li class="nav-item"><a class="nav-link" href="index.php">HOME</a></li>
+                        <li class="nav-item"><a class="nav-link" href="<?php echo base_url('Dashboard/') ?>">HOME</a></li>
                         <!-- <li class="nav-item" data-toggle="modal" data-target="#login-modal">LOGIN</li> -->
                         <?php if ($this->session->userdata('status') != "login") { ?>
-                            <li class="nav-item"><a class="nav-link" href="#login">LOGIN</a></li>
+                            <li class="nav-item"><a class="nav-link" href="<?php echo base_url('Login/') ?>">LOGIN</a></li>
                         <?php } else { ?>
                             <li class="nav-item"><a class="nav-link" href="<?php echo base_url('Login/logout') ?>">LOGOUT</a></li>
                         <?php } ?>

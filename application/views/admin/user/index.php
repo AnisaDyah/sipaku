@@ -27,7 +27,7 @@
                   <td>No.</td>
                   <td>Username</td>
                   <td>Password</td>
-                  <td>ID Level User</td>
+                  <td>Jenis User</td>
                   <td>No HP</td>
                   <td>Alamat</td>
                   <td>TTL</td>
@@ -42,7 +42,7 @@
                     <td><?php echo ++$key; ?></td>
                     <td><?php echo $value->username ?></td>
                     <td><?php echo $value->password ?></td>
-                    <td><?php echo $value->id_akses ?></td>
+                    <td><?php echo $value->nama_akses ?></td>
                     <td><?php echo $value->no_hp ?></td>
                     <td><?php echo $value->alamat ?></td>
                     <td><?php echo $value->tgl_lahir ?></td>

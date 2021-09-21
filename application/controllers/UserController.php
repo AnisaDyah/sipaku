@@ -23,7 +23,11 @@ class UserController extends CI_Controller
 	}
 	public function insert()
 	{
-		$dataheader = [];
+
+		$hak_akses = $this->UserModel->hak_akses();
+		$dataheader = [
+			'hak_akses' => $hak_akses
+		];
 		$data = [
 			'c_name' => $this->c_name,
 		];
@@ -33,6 +37,8 @@ class UserController extends CI_Controller
 		$this->form_validation->set_rules('no_hp', "no_hp", "required");
 		$this->form_validation->set_rules('alamat', "alamat", "required");
 		$this->form_validation->set_rules('tgl_lahir', "tgl_lahir", "required");
+		$this->form_validation->set_rules('nama_lengkap', "Nama Lengkap", "required");
+		$this->form_validation->set_rules('id_akses', "ID Akses", "required");
 
 
 
@@ -46,7 +52,10 @@ class UserController extends CI_Controller
 	}
 	public function update($id_user)
 	{
-		$dataheader = [];
+		$hak_akses = $this->UserModel->hak_akses();
+		$dataheader = [
+			'hak_akses' => $hak_akses
+		];
 		$data = [
 			'c_name' => $this->c_name,
 			'user' => $this->UserModel->get_id($id_user),
@@ -55,7 +64,10 @@ class UserController extends CI_Controller
 		$this->form_validation->set_rules('username', "username", "required|alpha_numeric|min_length[4]");
 		$this->form_validation->set_rules('no_hp', "no_hp", "required");
 		$this->form_validation->set_rules('alamat', "alamat", "required");
+		$this->form_validation->set_rules('nama_lengkap', "Nama Lengkap", "required");
+		$this->form_validation->set_rules('id_akses', "ID Akses", "required");
 
+		// var_dump(validation_errors());
 		if ($this->input->post('password') != "") {
 			$this->form_validation->set_rules('password', "password", "min_length[4]");
 			$this->form_validation->set_rules('re-password', "Ketik Ulang Password", "required|matches[password]");

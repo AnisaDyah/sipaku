@@ -13,14 +13,28 @@
 							<h2 class="fw-bold lh-base text-center text-white">REGRISTRATION</h2>
 							<hr class="mx-auto" style="height:2px;width:350px" />
 
+							<?php $error = $this->session->flashdata('error');
+							if ($error) { ?>
+								<div class="alert alert-danger alert-dismissable">
+									<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+									<?php echo $error; ?>
+								</div>
+							<?php } ?>
 							<form action="<?php echo base_url('Login/register') ?>" method="post">
-								<!-- <div class="form-group"> -->
-								<!-- <div class="row justify-content-center"> -->
-								<!-- <div class="col-md-6 mb-2"> -->
-								<!-- <input type="text" class="form-control" name="no_hp" placeholder="No HP" required="required"> -->
-								<!-- </div> -->
-								<!-- </div> -->
-								<!-- </div> -->
+								<div class="form-group">
+									<div class="row justify-content-center">
+										<div class="col-md-6 mb-2">
+										<input type="text" class="form-control" name="nama_lengkap" placeholder="Nama Lengkap" required="required">
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="row justify-content-center">
+										<div class="col-md-6 mb-2">
+										<input type="text" class="form-control" name="no_hp" placeholder="No HP" required="required">
+										</div>
+									</div>
+								</div>
 								<div class="form-group">
 									<div class="row justify-content-center">
 										<div class="col-md-6 mb-2">
@@ -29,13 +43,13 @@
 									</div>
 								</div>
 
-								<!-- <div class="form-group"> -->
-								<!-- <div class="row justify-content-center"> -->
-								<!-- <div class="col-md-6 mb-2"> -->
-								<!-- <input type="text" name="tgl_lahir" class="form-control pull-right" id="datepicker" placeholder="YYYY-MM-DD"> -->
-								<!-- </div> -->
-								<!-- </div> -->
-								<!-- </div> -->
+								<div class="form-group">
+									<div class="row justify-content-center">
+										<div class="col-md-6 mb-2">
+										<input type="text" name="tgl_lahir" class="form-control pull-right" id="datepicker" placeholder="YYYY-MM-DD">
+										</div>
+									</div>
+								</div>
 
 
 								<div class="form-group">
@@ -54,7 +68,7 @@
 								</div>
 
 								<div class="text-center py-3">
-									<button class="btn btn-lg btn-outline-light rounded-pill" type="submit"> REGRISTRATION </button>
+									<button class="btn btn-lg btn-outline-light rounded-pill" type="submit"> DAFTAR </button>
 								</div>
 
 							</form>

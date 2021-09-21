@@ -28,7 +28,7 @@
             <tr>
                 <td class="text-center"><?php echo $no++; ?></td>
                 <td><?php echo $value->tgl_diagnosa ?></td>
-                <td><?php echo $value->username ?></td>
+                <td><?php echo $value->nama_lengkap ?></td>
                 <td><?php echo $value->alamat ?></td>
                 <td><?php echo $value->nama_penyakit ?></td>
                 <td>

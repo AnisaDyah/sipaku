@@ -10,6 +10,11 @@
       <div class="card mb-6">
         <?php echo form_open_multipart("", array("id" => "form-input")); ?>
         <div class="form-group">
+          <label for="input-nama-lengkap" class="form-control-label">Nama Lengkap</label>
+          <input type="text" id="input-nama-lengkap" name="nama_lengkap" placeholder="Masukan Nama Lengkap" class="form-control" value="<?php echo $user->nama_lengkap ?>">
+          <?php echo form_error("nama_lengkap") ?>
+        </div>
+        <div class="form-group">
           <label for="input-username" class="form-control-label">Username</label>
           <input type="text" id="input-username" name="username" placeholder="Masukan Username" class="form-control" value="<?php echo $user->username ?>">
           <?php echo form_error("username") ?>
@@ -35,6 +40,25 @@
           <input type="text" id="input-alamat" name="alamat" placeholder="Masukan alamat" class="form-control" value="<?php echo $user->alamat ?>">
           <?php echo form_error("alamat") ?>
         </div>
+        <div class="form-group">
+          <label for="input-tgl_lahir" class="form-control-label">tgl_lahir</label>
+          <input type="tgl_lahir" id="datepicker" name="tgl_lahir" placeholder="YYYY-MM-DD" class="form-control" value="<?php echo $user->tgl_lahir ?>">
+          <?php echo form_error("tgl_lahir") ?>
+        </div>
+        <div class="form-group">
+          <label> Hak Akses </label>
+                <select class="form-control" name ="id_akses" id="id_akses"> 
+                <option selected>
+                <?php
+                  foreach($hak_akses as $k) {
+                    $s='';
+                      if($k->id_akses == $user->fk_akses)
+                      { $s='selected'; }
+                ?>
+                <option value="<?php echo $k->id_akses?>" <?php echo $s ?>><?php echo $k->nama_akses?></option>
+              <?php } ?>
+              </select>
+          </div>
 
 
         <?php echo form_close(); ?>

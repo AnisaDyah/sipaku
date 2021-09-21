@@ -44,7 +44,7 @@
                                     <tr>
                                         <td class="text-center"><?php echo $no++; ?></td>
                                         <td><?php echo $value->tgl_diagnosa ?></td>
-                                        <td><?php echo $value->username ?></td>
+                                        <td><?php echo $value->nama_lengkap ?></td>
                                         <td><?php echo $value->nama_penyakit ?></td>
                                         <td>
                                             <?php $result = $this->db->query('SELECT * FROM detail_diagnosa INNER JOIN mst_gejala on mst_gejala.id_gejala = detail_diagnosa.id_gejala WHERE id_diagnosa = ' . $id_diagnosa)->result_array();
