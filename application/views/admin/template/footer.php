@@ -11,7 +11,7 @@
 </div>
 
 <script src=" <?php echo base_url('assets/jquery-3.4.1.min.js') ?>" crossorigin="anonymous"></script>
-<script src="<?php echo base_url('assets/bootstrap/4.3.1/js/bootstrap.bundle.min.js') ?>" crossorigin="anonymous"></script>
+<script src="<?php echo base_url('assets/css/bootstrap/bootstrap.bundle.min.js') ?>" crossorigin="anonymous"></script>
 <script src="<?php echo base_url('assets/js/scripts.js') ?>"></script>
 <script src="<?php echo base_url('assets/ajax/libs/Chart.js/2.8.0/Chart.min.js') ?>" crossorigin="anonymous"></script>
 <script src="<?php echo base_url('assets/demo/chart-area-demo.js') ?>"></script>

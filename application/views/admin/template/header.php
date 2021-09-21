@@ -27,13 +27,15 @@
         </form>
         <ul class="navbar-nav ml-auto ml-md-0">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" id="userDropdown" href="<?php echo base_url('Login/logout') ?>" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img src="<?php echo base_url('assets/img/icon_dokter2.png') ?>" width="50" height="50">
+
                     <!-- <i class="fas fa-user fa-fw"></i> -->
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                     <a class="dropdown-item" href="<?php echo base_url('Login/logout') ?>">Logout</a>
                 </div>
+
             </li>
         </ul>
     </nav>
