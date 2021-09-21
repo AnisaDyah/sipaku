@@ -32,6 +32,8 @@ class UserController extends CI_Controller
 		$this->form_validation->set_rules('re-password', "Ketik Ulang Password", "required|matches[password]");
 		$this->form_validation->set_rules('no_hp', "no_hp", "required");
 		$this->form_validation->set_rules('alamat', "alamat", "required");
+		$this->form_validation->set_rules('tgl_lahir', "tgl_lahir", "required");
+
 
 
 		if ($this->form_validation->run() == false) {

@@ -30,6 +30,7 @@
                   <td>ID Level User</td>
                   <td>No HP</td>
                   <td>Alamat</td>
+                  <td>TTL</td>
                   <td>
                     <a class="btn btn-success" href="<?php echo base_url("UserController/insert") ?>">Insert</a>
                   </td>
@@ -44,6 +45,8 @@
                     <td><?php echo $value->id_akses ?></td>
                     <td><?php echo $value->no_hp ?></td>
                     <td><?php echo $value->alamat ?></td>
+                    <td><?php echo $value->tgl_lahir ?></td>
+
 
 
                     <td>

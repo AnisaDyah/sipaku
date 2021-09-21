@@ -38,6 +38,51 @@
 <script src="<?php echo base_url('assets_home/public/assets/js/theme.js') ?>"></script>
 
 <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500&amp;display=swap" rel="stylesheet">
+<script src="<?php echo base_url('assets/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') ?>"></script>
+<script src="<?php echo base_url('assets/') ?>demo/datatables-demo.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('#mydata').DataTable();
+    });
+</script>
+<script>
+    $(function() {
+        //Date picker
+        $('#datepicker').datepicker({
+            autoclose: true,
+            format: 'yyyy-mm-dd'
+        })
+
+        $('#datepicker2').datepicker({
+            autoclose: true,
+            format: 'yyyy-mm-dd'
+        })
+
+        $('#datepicker3').datepicker({
+            autoclose: true,
+            format: 'yyyy-mm-dd'
+        })
+
+        //Date picker Bulan
+        $('#datepickerbulan').datepicker({
+            autoclose: true,
+            format: 'M yyyy'
+        })
+
+        $('#datepickerbulan2').datepicker({
+            autoclose: true,
+            format: 'M yyyy'
+        })
+        $('#datepickerbulan3').datepicker({
+            autoclose: true,
+            format: 'M yyyy'
+        })
+
+
+    })
+</script>
+
 </body>
 
 </html>

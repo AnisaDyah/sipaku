@@ -37,6 +37,12 @@
           <?php echo form_error("alamat") ?>
         </div>
 
+        <div class="form-group">
+          <label for="input-tgl_lahir" class="form-control-label">tgl_lahir</label>
+          <input type="tgl_lahir" id="datepicker" name="tgl_lahir" placeholder="YYYY-MM-DD" class="form-control" value="">
+          <?php echo form_error("tgl_lahir") ?>
+        </div>
+
         <?php echo form_close(); ?>
       </div>
 

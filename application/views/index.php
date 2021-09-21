@@ -91,7 +91,7 @@
 											<button class="btn btn-lg btn-outline-light rounded-pill" type="submit"> SIGN IN </button>
 											<br>
 											<p></p>
-											<p>Dont have account ? <a href="<?php echo site_url('RegristrasiController') ?>" style="color:white">Regristration</a></p>
+											<p>Dont have account ? <a href="<?php echo site_url('RegisterController') ?>" style="color:white">Regristration</a></p>
 
 										</div>
 

@@ -3,33 +3,19 @@
 class RegisterModel extends CI_Model
 {
 
-    var $table_name = "user";
-
-    function register($username, $password, $no_hp, $alamat)
+    public function login($username, $password)
     {
-        $data = array(
-            'username' => $username,
-            'password' => password_hash($password, PASSWORD_DEFAULT),
-            'no_hp' => $no_hp,
-            'alamat' => $alamat
-        );
-        $this->db->insert('user', $data);
-    }
+        // Validasi
+        $this->db->where('username', $username);
+        $this->db->where('password', $password);
 
-    public function insert()
-    {
-        $set = [
-            'no_hp' => $this->input->post('no_hp'),
-            'alamat' => $this->input->post('alamat'),
-            'username' => $this->input->post('username'),
-            'password' => md5($this->input->post('password')),
-            'id_akses' => '2',
-        ];
-        $insert = $this->db->insert($this->table_name, $set);
-        if ($insert) {
-            $this->session->set_flashdata("success_message", "Data Berhasil di Tambahkan");
+        $result = $this->db->get('user');
+
+
+        if ($result->num_rows() == 1) {
+            return $result->row(0);
         } else {
-            $this->session->set_flashdata("error_message", "Data Gagal di Tambahkan");
+            return false;
         }
     }
 }

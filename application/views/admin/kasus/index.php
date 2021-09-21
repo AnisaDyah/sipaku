@@ -1,4 +1,3 @@
-<?php $this->load->view('admin/template/header.php') ?>
 <div id="layoutSidenav_content">
   <main>
     <div class="container-fluid">
@@ -26,35 +25,33 @@
               <thead>
                 <tr>
                   <td>No</td>
-                  <td>Penyakit</td>
                   <td>Gejala</td>
-
-
+                  <td>Penyakit</td>
                   <td>
                     <a class="btn btn-success" href="<?php echo base_url("KasusController/insert") ?>">Insert</a>
                   </td>
                 </tr>
               </thead>
               <tbody>
-                <?php foreach ($data as $key => $value) : ?>
+                <?php
+                $no = 1;
+                foreach ($kasus as $key => $value) :
+                  $id_bk = $value->id_bk ?>
                   <tr>
                     <td><?php echo ++$key; ?></td>
                     <td>
-                      <?php $result = $this->db->query('SELECT * FROM basis_kasus INNER JOIN mst_gejala on basis_kasus.id_gejala = mst_gejala.id_gejala WHERE id_bk = ' . $id_bk)->result_array();
+                      <?php $result = $this->db->query('SELECT * FROM basis_kasus INNER JOIN mst_gejala on mst_gejala.id_gejala = basis_kasus.id_gejala WHERE id_bk = ' . $id_bk)->result_array();
                       foreach ($result as $v) :
-                        echo $v['kd_gejala'] . " | " . $v['nama_gejala'];
+                        echo $v['kode_gejala'] . " | " . $v['nama_gejala'];
                         echo "<br>";
                       endforeach; ?>
                     </td>
                     <td>
-                      <?php $result = $this->db->query('SELECT * FROM detail_kasus INNER JOIN bobot on detail_kasus.fk_bobot = bobot.id_bobot WHERE id_bk = ' . $id_kasus . ' order by id_detailkasus')->result_array();
+                      <?php $result = $this->db->query('SELECT * FROM basis_kasus INNER JOIN mst_penyakit on mst_penyakit.id_penyakit = basis_kasus.id_penyakit WHERE id_bk = ' . $id_bk)->result_array();
                       foreach ($result as $v) :
-                        echo $v['bobot'];
+                        echo  $v['nama_penyakit'];
                         echo "<br>";
                       endforeach; ?>
-                    </td>
-                    <td>
-                      <?php echo $fk_hamapenyakit; ?>
                     </td>
 
                     <td>
@@ -63,6 +60,7 @@
                         <i class="fas fa-trash"></i>
                       </button>
                     </td>
+
                   </tr>
                 <?php endforeach ?>
               </tbody>
@@ -71,6 +69,7 @@
         </div>
       </div>
     </div>
+
   </main>
 
 
@@ -91,7 +90,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
-          <a href="<?php echo base_url("KasusController/delete/" . $value->id_bk) ?>" id="confirm-delete" class="btn btn-danger">Hapus</a>
+          <a href="<?php echo base_url("KasusController/delete/" . $value->id_kasus) ?>" id="confirm-delete" class="btn btn-danger">Hapus</a>
         </div>
       </div>
     </div>
@@ -102,7 +101,6 @@
       $(this).find('#confirm-delete').attr('href', button.data('href'));
     });
   </script>
-  <!-- footer -->
   <?php $this->load->view('admin/template/footer.php') ?>
 
   <!-- end footer -->

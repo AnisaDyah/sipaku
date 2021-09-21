@@ -24,10 +24,11 @@ class UserModel extends CI_Model
         $set = [
 
             'username' => $this->input->post('username'),
-            'password' => md5($this->input->post('password')),
+            'password' => $this->input->post('password'),
             'id_akses' => '2',
             'no_hp' => $this->input->post('no_hp'),
             'alamat' => $this->input->post('alamat'),
+            'tgl_lahir' => $this->input->post('tgl_lahir')
         ];
         $insert = $this->db->insert($this->table_name, $set);
         if ($insert) {
