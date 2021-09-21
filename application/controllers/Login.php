@@ -36,7 +36,7 @@ class Login extends CI_Controller
 
 			$this->session->set_userdata($data_session);
 
-			if ($data_user[0]['id_akses'] == 1) {
+			if ($data_user[0]['fk_akses'] == 1) {
 				redirect(base_url("Admin"));
 			} else {
 				redirect(base_url("DiagnosaController"));

@@ -26,8 +26,6 @@ class DiagnosaController extends CI_Controller {
         $diagnosa['data'] = $this->GejalaModel->tampil_gejala()->result_array();
         $data = $diagnosa['data'];
         delete_cookie("hasil_diagnosa");
-        //var_dump($diagnosa['data']);
-        //$this->session->sess_create();
 		$this->load->view('header');
         $this->load->view('users/pilih_gejala',$diagnosa);
         $this->load->view('footer');
@@ -35,10 +33,10 @@ class DiagnosaController extends CI_Controller {
     
     public function diagnosa()
 	{
-        //get gejala setiap penyakit
+        //get gejala setiap penyakit dari db
 		$basis_kasus =$this->BasisKasusModel->get_basis_kasus();
 
-        //get data dari form user
+        //get data yang dipilih dari user
         $data_kasus_baru = $this->input->post('gejala');
         //var_dump($data_kasus_baru);
 
@@ -49,16 +47,22 @@ class DiagnosaController extends CI_Controller {
 
             $id_gejala_all=[];
 
-            //var_dump($value['id_penyakit']);
+            //kumpulkan id gejala dalam array
             foreach ($value['gejala'][0] as $va) {
                 array_push($id_gejala_all,$va['id_gejala']);
             }
             
+            //mencocokan nilai array id_gejala (dari db) dan id_gejala (yg dipilih user)
             $result=array_intersect($id_gejala_all,$data_kasus_baru);
             //var_dump($result);
             
+            //jika ada gejala yang cocok
             if(count($result) > 0){
+                //maka ambil penyakit yang memiliki gejala tersebut
                 $basis_kasus_byid =$this->BasisKasusModel->get_basis_kasus_byid($value['id_penyakit']);
+
+                //ambil data gejala sesuai gejala yang dipilih user simpan dalam gejala_selected
+                //gejala_selected['id_penyakit] untuk menyimpan gejala sesuai id penyakit
                 $gejala_selected[$value['id_penyakit']] = [];
                 foreach ($basis_kasus_byid as $ke => $val) {
                     foreach ($data_kasus_baru as $va) {
@@ -68,9 +72,15 @@ class DiagnosaController extends CI_Controller {
                         }
                     }
                 }
+
+                //gejala_selected_all untuk menyimpan semua gejala dari banyak penyakit
                 $gejala_selected_all[$value['id_penyakit']]=$gejala_selected[$value['id_penyakit']];
+
+                //hitung nilai presentase kemiripin gejala yang dialami user dengan rule dari pakar
                 $perhitungan_fc = (count($gejala_selected[$value['id_penyakit']])/count($basis_kasus_byid)) * 100;
                 //echo $perhitungan_fc;
+
+                //jika presentase lebih dari 50% maka penyakit akan terpilih sebagai dugaan diagnosa 
                 if($perhitungan_fc > 50){
                     //array_push($nilai_presentase), $perhitungan_fc);
                     $nilai_presentase[$value['id_penyakit']]= $perhitungan_fc;
@@ -79,10 +89,12 @@ class DiagnosaController extends CI_Controller {
                 //echo var_dump($nilai_presentase);
                 if(count($nilai_presentase) != 0){
                     array_push($data_ketemu,true);
+                    // jika ada lebih dari 1 penyakit yang menjadi dugaan diagnnosa maka akan dicari nilai presentase terbesar
                     if(count($nilai_presentase) > 1){
                         $maksimal = max($nilai_presentase);
                         $maxKey = array_search($maksimal, $nilai_presentase);
                     }else{
+                        //jika hanya ada satu penyakit maka penyakit tersebut akan terpilih sebagai diagnosa
                         $maksimal = array_values($nilai_presentase)[0]; 
                         $maxKey = array_search($maksimal, $nilai_presentase);
                     //echo array_values($nilai_presentase)[0];                    
@@ -96,11 +108,13 @@ class DiagnosaController extends CI_Controller {
         }
         //var_dump($data_ketemu);
 
+        //jika data penyakit ditemukan maka tampilkan hasil diagnosa beserta informasi lainnya
         if(count($data_ketemu) >0){
             $penyakit_terpilih = $this->PenyakitModel->get_id($maxKey);
             $penyakit_terpilih->perhitungan_fc=$maksimal;
             $penyakit_terpilih->gejala_selected=$gejala_selected_all[$maxKey];
         
+            //kirim hasil diagnosa ke dalam cookie untuk disimpan sementara 
             $cookie= array(
                 'name'   => 'hasil_diagnosa',
                 'value'  => json_encode($penyakit_terpilih),                            
@@ -114,37 +128,15 @@ class DiagnosaController extends CI_Controller {
             $this->load->view('footer');
         }else{
             //pop up data tidak ktemu
+            //jika data tidak ditemukan maka akan ad notifikasi berikut
             $this->session->set_flashdata('notif', '<div class="alert alert-danger alert-dismissible"> Gagal! Diagnosa tidak ditemukan</div>');
             redirect('DiagnosaController/');
         }
     }
 
-    public function get_pdf_test(){
-        $today = new DateTime('today');
-        $where = array(
-			'id_user' => $this->session->userdata('id_user')
-        );
-        $this->load->model('M_login');
-        $data_user = $this->M_login->cek_login("user",$where)->result_array();
-        $umur = $today->diff($data_user[0]['tgl_lahir'])->y;
-        $data = array(
-            "dataku" => array(
-                "nama" => $data_user[0]['username'],
-                "url" => "http://petanikode.com",
-                "alamat" => $data_user[0]['alamat'],
-                "no_hp" => $data_user[0]['no_hp'],
-            )
-        );
-    
-        $this->load->library('pdf');
-    
-        $this->pdf->setPaper('A4', 'potrait');
-        $this->pdf->filename = "laporan-petanikode.pdf";
-        $this->pdf->load_view('users/laporan', $data);
-    }
-
+//fungsi untuk cetak hasil diagnosa kedalam pdf
     public function cetak_diagnosa(){
-
+        
         $today = date("Y-m-d");
         $where = array(
             'id_user' => $this->session->userdata('id_user')
@@ -154,7 +146,9 @@ class DiagnosaController extends CI_Controller {
         $tgl_lahir = $data_user[0]['tgl_lahir'];
         $umur = substr($today,0,4) - substr($tgl_lahir,0,4);
         
+        //ambil data hasil diagnosa dari cookie yang sudah disimpan tadi
         $data_diagnosa= json_decode($this->input->cookie('hasil_diagnosa',true));
+        //ketika user cetak hasil diagnosa, maka otomatis hasil diagnosa akan trsimpan kedalam db sebagai riwayat diagnosa
         $this->insert_hasil_diagnosa($data_diagnosa);
         $data = array(
             "user" => array(
@@ -174,6 +168,8 @@ class DiagnosaController extends CI_Controller {
         $this->pdf->load_view('users/laporan_pdf', $data);
     }
 
+
+    //simpan riwayat diagnosa kedalam db
     public function insert_hasil_diagnosa($data)
 	{
 		$detail = $data->gejala_selected;
