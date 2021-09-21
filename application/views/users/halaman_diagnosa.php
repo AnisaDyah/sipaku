@@ -34,29 +34,22 @@
 
 									<!-- <form action="<?php echo site_url('Admin') ?>" method="post"> -->
 
-										<div class="form-group">
-											<div class="row justify-content-center">
-												<div class="col-md-6 mb-2 text-center">
-                                                    <!-- <input type="text" class="form-control" name="username" placeholder="Username" required="required"> -->
-                                                    <h3 class="fw-bold lh-base text-center text-white">Apakah Kulit Anda <?= $nama_gejala ?></h3>
-												</div>
+									<div class="form-group">
+										<div class="row justify-content-center">
+											<div class="col-md-6 mb-2 text-center">
+												<!-- <input type="text" class="form-control" name="username" placeholder="Username" required="required"> -->
+												<h3 class="fw-bold lh-base text-center text-white">Apakah Kulit Anda <?= $nama_gejala ?></h3>
 											</div>
 										</div>
-										<!-- <div class="form-group">
-											<div class="row justify-content-center">
-												<div class="col-md-6 mb-2">
-													<input type="password" class="form-control" name="password" placeholder="Password" required="required">
-												</div>
-											</div>
-										</div> -->
+									</div>
 
-										<div class="text-center py-3">
-                                            <a class="btn btn-lg btn-warning rounded-pill" href="<?php echo site_url('DiagnosaController/cek_diagnosa/1/'.$id_gejala) ?>"> Ya </a>
-                                            <a class="btn btn-lg btn-danger rounded-pill" href="<?php echo site_url('DiagnosaController/cek_diagnosa/0/'.$id_gejala) ?>"> Tidak </a>
-                                        </div>
-                                        <div class="text-center py-3">
-                                            <hr class="mx-auto" style="height:2px;width:350px" />
-										</div>
+									<div class="text-center py-3">
+										<a class="btn btn-lg btn-warning rounded-pill" href="<?php echo site_url('DiagnosaController/cek_diagnosa/1/' . $id_gejala) ?>"> Ya </a>
+										<a class="btn btn-lg btn-danger rounded-pill" href="<?php echo site_url('DiagnosaController/cek_diagnosa/0/' . $id_gejala) ?>"> Tidak </a>
+									</div>
+									<div class="text-center py-3">
+										<hr class="mx-auto" style="height:2px;width:350px" />
+									</div>
 
 									<!-- </form> -->
 								</div>

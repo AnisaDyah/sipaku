@@ -1,7 +1,13 @@
 <section class="py-6 py-lg-8" id="login">
-	<div class="bg-holder" style="background-image:url(assets/img/illustrations/dot.png);background-position:right bottom;background-size:auto;margin-top:50px;">
+	<div class="bg-holder" style="background-image:url(<?php echo base_url('assets_home/public/assets/img/illustrations/dot.png') ?>);background-position:right bottom;background-size:auto;margin-top:50px;">
 	</div>
-	<!--/.bg-holder-->
+
+	<div class="bg-holder" style="background-image:url(<?php echo base_url('assets_home/public/assets/img/illustrations/dot.png') ?>);background-position:left bottom;background-size:auto;margin-top:50px;">
+	</div>
+	<div class="bg-holder" style="background-image:url(<?php echo base_url('assets_home/public/assets/img/illustrations/dot-2.png') ?>);background-position:center right;background-size:auto;margin-left:-180px;margin-top:20px;">
+	</div>
+	<div class="bg-holder" style="background-image:url(<?php echo base_url('assets_home/public/assets/img/illustrations/services-bg.png') ?>);background-position:center left;background-size:auto;">
+	</div>
 
 	<div class="container">
 		<div class="row h-100">
@@ -24,14 +30,14 @@
 								<div class="form-group">
 									<div class="row justify-content-center">
 										<div class="col-md-6 mb-2">
-										<input type="text" class="form-control" name="nama_lengkap" placeholder="Nama Lengkap" required="required">
+											<input type="text" class="form-control" name="nama_lengkap" placeholder="Nama Lengkap" required="required">
 										</div>
 									</div>
 								</div>
 								<div class="form-group">
 									<div class="row justify-content-center">
 										<div class="col-md-6 mb-2">
-										<input type="text" class="form-control" name="no_hp" placeholder="No HP" required="required">
+											<input type="text" class="form-control" name="no_hp" placeholder="No HP" required="required">
 										</div>
 									</div>
 								</div>
@@ -46,7 +52,7 @@
 								<div class="form-group">
 									<div class="row justify-content-center">
 										<div class="col-md-6 mb-2">
-										<input type="text" name="tgl_lahir" class="form-control pull-right" id="datepicker" placeholder="YYYY-MM-DD">
+											<input type="text" name="tgl_lahir" class="form-control pull-right" id="datepicker" placeholder="YYYY-MM-DD">
 										</div>
 									</div>
 								</div>

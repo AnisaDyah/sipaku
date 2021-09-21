@@ -1,3 +1,4 @@
+<?php $this->load->view('admin/template/header.php') ?>
 <div id="layoutSidenav_content">
   <main>
     <div class="container-fluid">
@@ -5,35 +6,51 @@
       <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item"><a href="<?php echo base_url("Admin") ?>">Dashboard</a></li>
         <li class="breadcrumb-item active"><a href="<?php echo base_url("PenyakitController/index") ?>">Gejala</a></li>
-        <li class="breadcrumb-item active">Insert Gejala Penyakit</li>
+        <li class="breadcrumb-item active">Insert Kasus Penyakit</li>
       </ol>
       <div class="card mb-6">
-        <?php echo form_open_multipart("", array("id" => "form-input")); ?>
-        <div class="form-group">
-          <label for="input-kode_gejala" class="form-control-label">Kode Gejala</label>
-          <input type="text" id="input-kode_gejala" name="kode_gejala" placeholder="Masukan kode_gejala" class="form-control" value="<?php echo set_value("kode_gejala") ?>">
-          <?php echo form_error("kode_gejala") ?>
-        </div>
-        <div class="form-group">
-          <label for="input-nama_gejala" class="form-control-label">Nama Gejala</label>
-          <input type="text" id="input-nama_gejala" name="nama_gejala" placeholder="Masukan nama_gejala" class="form-control" value="<?php echo set_value("nama_gejala") ?>">
-          <?php echo form_error("nama_gejala") ?>
-        </div>
+        <form class="form-horizontal" method="post" action="<?php echo base_url() . 'KasusController/simpan_kasus' ?>">
+          <?php echo form_open_multipart("", array("id" => "form-input")); ?>
 
-        <div class="form-group">
-          <label for="input-ket_gejala" class="form-control-label">Keterangan</label>
-          <textarea class="form-control" name="ket_gejala" rows="3" placeholder="Masukan Keterangan Penyakit" value="<?php echo set_value("ket_gejala") ?>"></textarea>
-          <?php echo form_error("konten") ?>
-        </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1"><b>Pilih Jenis Penyakit</b></label>
+            <select class="form-control" id="id_penyakit" name="id_penyakit" required>
+              <?php foreach ($data->result_array() as $i) :
+                $id_penyakit = $i['id_penyakit'];
+                $nama_penyakit = $i['nama_penyakit'];
+              ?>
+                <option value="<?php echo $id_penyakit; ?>"><?php echo $nama_penyakit; ?></option>
+              <?php endforeach; ?>
+            </select>
 
-        <?php echo form_close(); ?>
+
+          </div>
+          <div class="form-group">
+            <div class="form-check">
+              <div class="col-md-12"><label for="gejala"><b>Pilih Gejala</b></label></div>
+              <?php $no = 1;
+              foreach ($gejala->result_array() as $v) : ?>
+                <div class="col-md-12">
+                  <input type="checkbox" name="gejala[<?= $no ?>]" id="gejala[]" value=<?= $v['id_gejala']; ?>>
+                  <?= $v['nama_gejala']; ?>
+                  <br> <br>
+                </div>
+
+              <?php $no++;
+
+              endforeach; ?>
+            </div>
+            <?php echo form_close(); ?>
+
+        </form>
+
       </div>
 
       <div class="card-footer">
         <button type="submit" class="btn btn-primary btn-sm" form="form-input">
           <i class="fa fa-dot-circle-o"></i> Submit
         </button>
-        <a href="<?php echo base_url($c_name) ?>" class="btn btn-danger btn-sm">
+        <a href="<?php echo base_url('KasusController') ?>" class="btn btn-danger btn-sm">
           <i class="fa fa-ban"></i> Cancel
         </a>
       </div>

@@ -49,13 +49,15 @@
                 <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto pt-2 pt-lg-0">
 
-                        <li class="nav-item"><a class="nav-link" href="<?php echo base_url('Dashboard/') ?>">HOME</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Dashboard">HOME </a></li>
                         <!-- <li class="nav-item" data-toggle="modal" data-target="#login-modal">LOGIN</li> -->
                         <?php if ($this->session->userdata('status') != "login") { ?>
-                            <li class="nav-item"><a class="nav-link" href="<?php echo base_url('Login/') ?>">LOGIN</a></li>
+                            <li class="nav-item"><a class="nav-link" href="<?php echo base_url('Login') ?>">LOGIN </a></li>
                         <?php } else { ?>
                             <li class="nav-item"><a class="nav-link" href="<?php echo base_url('Login/logout') ?>">LOGOUT</a></li>
                         <?php } ?>
+                        <li class="nav-item"><a class="nav-link" href="Dashboard">TENTANG SIPAKU</a></li>
+
                     </ul>
                 </div>
             </div>
