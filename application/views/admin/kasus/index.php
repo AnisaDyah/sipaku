@@ -74,37 +74,36 @@
     </div>
   </main>
 
-  <!-- <?php foreach ($konsul as $key => $value) :
-          $id_diagnosa = $value->id_diagnosa ?>
-        <tr> -->
+
   <!-- ============ MODAL HAPUS =============== -->
-  <div class="modal fade" id="modal-cetak" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
-    <div class="modal-dialog">
+  <div class="modal fade" id="modal-delete" tabindex="-1" role="dialog" aria-labelledby="modaldeleteLabel" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog modal-sm" role="document">
       <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title" id="myModalLabel">Pilih Periode Riwayat</h4>
+      <div class="modal-header">
+          <h5 class="modal-title" id="modaldeleteLabel">Konfirmasi Hapus</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-        <form class="form-horizontal" method="post" action="<?php echo base_url() . 'RiwayatDiagnosaController/cetak' ?>">
-          <div class="modal-body">
-            <div class="form-group">
-              <label>Tanggal Awal</label>
-              <input type="text" name="tgl_awal" class="form-control pull-right" id="datepicker" placeholder="YYYY-MM-DD">
-            </div>
-            <div class="form-group">
-              <label>Tanggal Akhir</label>
-              <input type="text" name="tgl_akhir" class="form-control pull-right" id="datepicker2" placeholder="YYYY-MM-DD">
-            </div>
-          </div>
-          <div class="modal-footer">
-            <!-- <input type="hidden" name="id_diagnosa" value="<?php echo $id_diagnosa; ?>"> -->
-            <button class="btn" data-dismiss="modal" aria-hidden="true">Tutup</button>
-            <button class="btn btn-warning"><i class="fa fa-print"></i> Cetak</button>
-          </div>
-        </form>
+        <div class="modal-body">
+          <p>
+            Apakah anda yakin menghapus data ini?
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+          <a href="<?php echo base_url("KasusController/delete/" .$value['id_penyakit']) ?>" id="confirm-delete" class="btn btn-danger">Hapus</a>
+        
+        </div>
       </div>
     </div>
   </div>
-  <!-- <?php endforeach; ?> -->
+ <script>
+    $('#modal-delete').on('show.bs.modal', function(event) {
+      var button = $(event.relatedTarget)
+      $(this).find('#confirm-delete').attr('href', button.data('href'));
+    });
+  </script>
   <!-- ============ END MODAL HAPUS =============== -->
 
   <!-- footer -->
