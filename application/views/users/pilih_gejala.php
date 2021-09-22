@@ -1,21 +1,18 @@
-<section class="py-6 py-lg-8" id="diagnosa">
+<section class="py-6 py-lg-8">
 	<div class="bg-holder" style="background-image:url(<?php echo base_url('assets_home/public/assets/img/illustrations/dot.png') ?>);background-position:right top;background-size:auto;margin-top:50px;">
 	</div>
-
 	<div class="bg-holder" style="background-image:url(<?php echo base_url('assets_home/public/assets/img/illustrations/dot.png') ?>);background-position:left top;background-size:auto;margin-top:50px;">
 	</div>
-	<div class="bg-holder" style="background-image:url(<?php echo base_url('assets_home/public/assets/img/icn2.png') ?>);background-position:right bottom;background-size:auto;margin-bottom:100px;opacity: 0.5;">
+	<div class="bg-holder" style="background-image:url(<?php echo base_url('assets_home/public/assets/img/bgs.png') ?>);background-position:center top;background-size:auto;margin-bottom:100px;opacity: 0.5;">
 	</div>
-
-	<div class="bg-holder" style="background-image:url(<?php echo base_url('assets_home/public/assets/img/icns.png') ?>);background-position:left bottom;background-size:auto;margin-bottom:100px;opacity: 0.5;">
+	<div class="bg-holder" style="background-image:url(<?php echo base_url('assets_home/public/assets/img/illustrations/dot.png') ?>);background-position:right bottom;background-size:auto;margin-bottom:50px;">
 	</div>
-
-
+	<div class="bg-holder" style="background-image:url(<?php echo base_url('assets_home/public/assets/img/dk.png') ?>);background-position:left bottom;background-size:auto 45%;margin-bottom:100px;opacity: 0.5;">
+	</div>
+	<div class="bg-holder" style="background-image:url(<?php echo base_url('assets_home/public/assets/img/illustrations/article-bg.png') ?>);background-position:right center;background-size:auto;">
+	</div>
 	<div class="bg-holder" style="background-image:url(<?php echo base_url('assets_home/public/assets/img/illustrations/dot-2.png') ?>);background-position:center right;background-size:auto;margin-left:-180px;margin-top:20px;">
 	</div>
-
-	<!-- <div class="bg-holder" style="background-image:url(<?php echo base_url('assets_home/public/assets/img/illustrations/services-bg.png') ?>);background-position:center left;background-size:auto;"> -->
-	<!-- </div> -->
 
 	<!--/.bg-holder-->
 
@@ -49,9 +46,9 @@
 
 											<!-- <input type="text" class="form-control" name="username" placeholder="Username" required="required"> -->
 											<!-- <h3 class="fw-bold lh-base text-center text-white">Apakah Kulit Anda <?= $nama_gejala ?></h3> -->
-											<table class="table  table-bordered text-dark">
-												<thead>
-													<tr class="bg-warning">
+											<table class="table table-light table-striped table-bordered">
+												<thead class="table-secondary">
+													<tr>
 														<th>No.</th>
 														<th>Nama Gejala</th>
 														<th>Chek</th>
@@ -85,7 +82,7 @@
                                             <hr class="mx-auto" style="height:2px;width:350px" />
 										</div> -->
 								<div class="text-center py-3">
-									<button type="submit" class="btn btn-lg btn-warning rounded-pill">
+									<button type="submit" class="btn btn-lg btn-warning rounded-pill hover-top">
 										<span class="fas fa-check-circle"></span>
 										<span style="font-size: 15px">Cek Diagnosa</span>
 									</button>

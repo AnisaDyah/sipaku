@@ -31,21 +31,17 @@
 <!-- ===============================================-->
 <!--    JavaScripts-->
 <!-- ===============================================-->
+<script src=" <?php echo base_url('assets_home/public/jquery-3.4.1.min.js') ?>" crossorigin="anonymous"></script>
+
 <script src="<?php echo base_url('assets_home/public/vendors/@popperjs/popper.min.js') ?>"></script>
 <script src="<?php echo base_url('assets_home/public/vendors/bootstrap/bootstrap.min.js') ?>"></script>
 <script src="<?php echo base_url('assets_home/public/vendors/is/is.min.js') ?>"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
 <script src="<?php echo base_url('assets_home/public/assets/js/theme.js') ?>"></script>
+<script src="<?php echo base_url('assets_home/public/ajax/libs/Chart.js/2.8.0/Chart.min.js') ?>" crossorigin="anonymous"></script>
 
 <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500&amp;display=swap" rel="stylesheet">
 <script src="<?php echo base_url('assets_home/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') ?>"></script>
-<script src="<?php echo base_url('assets/') ?>demo/datatables-demo.js"></script>
-
-<script>
-    $(document).ready(function() {
-        $('#mydata').DataTable();
-    });
-</script>
 <script>
     $(function() {
         //Date picker
@@ -82,6 +78,9 @@
 
     })
 </script>
+
+
+
 
 </body>
 
