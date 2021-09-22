@@ -53,7 +53,7 @@
 								<div class="form-group">
 									<div class="row justify-content-center">
 										<div class="col-md-6 mb-2">
-											<input type="text" name="tgl_lahir" class="form-control pull-right" id="#datepicker2" placeholder="YYYY-MM-DD">
+											<input type="text" name="tgl_lahir" class="form-control pull-right" id="datepicker" placeholder="Tanggal Lahir">
 										</div>
 									</div>
 								</div>

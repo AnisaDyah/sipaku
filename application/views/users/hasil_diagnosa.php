@@ -67,7 +67,7 @@
 										</div>
 										<div class="py-3">
 											<center>
-												<h3 class="fw-bold card-title">Penyakit Kulit Anda</h3>
+												<h3 class="fw-bold card-title">Diagnosa Sementara</h3>
 											</center>
 											</br>
 											<center>
@@ -116,6 +116,7 @@
 							</div>
 							<div class="text-center py-4">
 								<div class="text-center py-3">
+									<p>*jika sakit berlanjut mohon segera menghubungi dokter</p>
 									<hr class="mx-auto" style="height:6px;width:950px" />
 								</div>
 								<div class="text-center py-3">

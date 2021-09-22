@@ -11,7 +11,7 @@
         <?php echo form_open_multipart("", array("id" => "form-input")); ?>
         <div class="form-group">
           <label for="input-kode_gejala" class="form-control-label">Kode Gejala</label>
-          <input type="text" id="input-kode_gejala" disabled name="kode_gejala" class="form-control" value="<?php echo $gejala->kode_gejala ?>">
+          <input type="text" id="input-kode_gejala" name="kode_gejala" class="form-control" value="<?php echo $gejala->kode_gejala ?>">
           <?php echo form_error("kode_gejala") ?>
         </div>
         <div class="form-group">

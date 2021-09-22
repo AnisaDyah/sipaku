@@ -39,47 +39,19 @@
 <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
 <script src="<?php echo base_url('assets_home/public/assets/js/theme.js') ?>"></script>
 <script src="<?php echo base_url('assets_home/public/ajax/libs/Chart.js/2.8.0/Chart.min.js') ?>" crossorigin="anonymous"></script>
-
+<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="bootstrap.min.js"></script>
+<link rel="stylesheet" href="jquery-ui.css" />
 <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500&amp;display=swap" rel="stylesheet">
-<script src="<?php echo base_url('assets_home/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') ?>"></script>
+
+<script src="<?php echo base_url('assets_home/public/datepicker/jquery-3.3.1.min.js') ?>"></script>
+<script src="<?php echo base_url('assets_home/public/datepicker/js/gijgo.min.js') ?>" type="text/javascript"></script>
 <script>
-    $(function() {
-        //Date picker
-        $('#datepicker').datepicker({
-            autoclose: true,
-            format: 'yyyy-mm-dd'
-        })
-
-        $('#datepicker2').datepicker({
-            autoclose: true,
-            format: 'yyyy-mm-dd'
-        })
-
-        $('#datepicker3').datepicker({
-            autoclose: true,
-            format: 'yyyy-mm-dd'
-        })
-
-        //Date picker Bulan
-        $('#datepickerbulan').datepicker({
-            autoclose: true,
-            format: 'M yyyy'
-        })
-
-        $('#datepickerbulan2').datepicker({
-            autoclose: true,
-            format: 'M yyyy'
-        })
-        $('#datepickerbulan3').datepicker({
-            autoclose: true,
-            format: 'M yyyy'
-        })
-
-
-    })
+    $('#datepicker').datepicker({
+        autoclose: true,
+        format: 'yyyy-mm-dd'
+    });
 </script>
-
-
 
 
 </body>

@@ -50,8 +50,13 @@
 
 						<li class="nav-item"><a class="nav-link" href="<?php echo base_url('Dashboard') ?>">HOME </a></li>
 						<li class=" nav-item"><a class="nav-link" href="#tentang">TENTANG SIPAKU</a></li>
+						<?php if ($this->session->userdata('status') != "login") { ?>
+							<li class="nav-item"><a class="nav-link" href="#login">LOGIN </a></li>
 
-						<li class="nav-item"><a class="nav-link" href="#login">LOGIN </a></li>
+						<?php } else { ?>
+							<li class="nav-item"><a class="nav-link" href="<?php echo base_url('Login/logout') ?>">LOGOUT</a></li>
+						<?php } ?>
+
 
 					</ul>
 				</div>

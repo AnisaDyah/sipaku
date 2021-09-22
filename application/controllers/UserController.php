@@ -70,7 +70,6 @@ class UserController extends CI_Controller
 		// var_dump(validation_errors());
 		if ($this->input->post('password') != "") {
 			$this->form_validation->set_rules('password', "password", "min_length[4]");
-			$this->form_validation->set_rules('re-password', "Ketik Ulang Password", "required|matches[password]");
 		}
 
 		if ($this->form_validation->run() == false) {

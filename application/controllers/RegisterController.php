@@ -20,10 +20,12 @@ class RegisterController extends CI_Controller
 	}
 	public function proses()
 	{
-		$this->form_validation->set_rules('username', "Username", "required|alpha_numeric|min_length[6]");
+		$this->form_validation->set_rules('username', "Username", "required|alpha_numeric|min_length[6]|is_unique[user.username]");
 		$this->form_validation->set_rules('password', "Password", "required|min_length[6]");
 		$this->form_validation->set_rules('alamat', "alamat", "required");
-
+		$this->form_validation->set_rules('no_hp', "No HP", "required|integer|min_length[11]");
+		$this->form_validation->set_rules('tgl_lahir', "Tanggal Lahir", "required");
+		$this->form_validation->set_rules('nama_lengkap', "Nama Lengkap", "required");
 
 
 		if ($this->form_validation->run() == true) {

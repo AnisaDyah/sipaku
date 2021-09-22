@@ -26,9 +26,7 @@
 
     <link rel="stylesheet" href="<?php echo base_url('assets_home/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') ?>">
     <script src="<?php echo base_url('assets_home/public/ajax/libs/font-awesome/5.11.2/js/all.min.js') ?>" crossorigin="anonymous"></script>
-
-
-
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 
     <!-- ===============================================-->
     <!--    Stylesheets-->

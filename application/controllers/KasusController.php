@@ -17,9 +17,10 @@ class KasusController extends CI_Controller
 		$dataheader = [];
 		$this->load->model('KasusModel');
 		//$basis_kasus = $this->KasusModel->kasus()->result();
-		$basis_kasus =$this->KasusModel->get_basis_kasus();
+		$basis_kasus = $this->KasusModel->get_basis_kasus();
 		$data['kasus'] = $basis_kasus;
 		//var_dump($data['konsul']);
+
 		$this->load->view('admin/kasus/index', $data);
 	}
 
@@ -35,16 +36,16 @@ class KasusController extends CI_Controller
 	{
 
 		$this->form_validation->set_rules('id_penyakit', "ID Penyakit", "required|is_unique[basis_kasus.id_penyakit]");
-		
+
 		if ($this->form_validation->run() == true) {
 			$id_penyakit = $this->input->post('id_penyakit');
 			$id_gejala = $this->input->post('gejala');
-	
+
 			$data1 = array(
 				'id_gejala' => $id_gejala,
 				'id_penyakit' => $id_penyakit
 			);
-	
+
 			$id = $this->KasusModel->insert($data1);
 			redirect(base_url("KasusController/"), 'refresh');
 		} else {
@@ -52,7 +53,6 @@ class KasusController extends CI_Controller
 			$this->session->set_flashdata('error', validation_errors());
 			redirect(base_url("KasusController/insert"));
 		}
-
 	}
 	public function update_kasus($id_penyakit)
 	{
@@ -71,16 +71,16 @@ class KasusController extends CI_Controller
 	{
 
 		$gejala = $this->KasusModel->show_gejala();
-		$gejala_checked =$this->KasusModel->get_basis_kasus_byid($id_penyakit);
-		$gejala_new=[];
+		$gejala_checked = $this->KasusModel->get_basis_kasus_byid($id_penyakit);
+		$gejala_new = [];
 		foreach ($gejala->result_array() as $v) {
 			foreach ($gejala_checked as $ke => $val) {
-			  $id_gejala=$val['id_gejala']; 
-			  if($v['id_gejala'] == $id_gejala){ 
-				  $v['checked']=true; 
-			  }
+				$id_gejala = $val['id_gejala'];
+				if ($v['id_gejala'] == $id_gejala) {
+					$v['checked'] = true;
+				}
 			}
-			array_push($gejala_new,$v);
+			array_push($gejala_new, $v);
 		}
 		$kasus['data'] = $this->KasusModel->show_penyakit();
 		$kasus['gejala'] = $gejala_new;
@@ -97,5 +97,4 @@ class KasusController extends CI_Controller
 		$this->KasusModel->delete($id_penyakit);
 		redirect('KasusController', 'refresh');
 	}
-
 }

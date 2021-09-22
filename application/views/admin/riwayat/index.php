@@ -90,7 +90,7 @@
                     </div>
                     <div class="modal-footer">
                         <!-- <input type="hidden" name="id_diagnosa" value="<?php echo $id_diagnosa; ?>"> -->
-                        <button class="btn" data-dismiss="modal" aria-hidden="true">Tutup</button>
+                        <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Tutup</button>
                         <button class="btn btn-warning"><i class="fa fa-print"></i> Cetak</button>
                     </div>
                 </form>

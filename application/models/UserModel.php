@@ -25,6 +25,7 @@ class UserModel extends CI_Model
     {
         $set = [
 
+
             'username' => $this->input->post('username'),
             'password' => md5($this->input->post('password')),
             'no_hp' => $this->input->post('no_hp'),

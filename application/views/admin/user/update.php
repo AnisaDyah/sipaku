@@ -25,11 +25,6 @@
           <?php echo form_error("password") ?>
         </div>
         <div class="form-group">
-          <label for="input-re-password" class="form-control-label">Ketik Ulang Password</label>
-          <input type="password" id="input-re-password" name="re-password" placeholder="Ketik Ulang Password" class="form-control" value="">
-          <?php echo form_error("re-password") ?>
-        </div>
-        <div class="form-group">
           <label for="input-no_hp" class="form-control-label">No HP</label>
           <input type="text" id="input-no_hp" name="no_hp" placeholder="Masukan no_hp" class="form-control" value="<?php echo $user->no_hp ?>">
           <?php echo form_error("no_hp") ?>
@@ -47,18 +42,19 @@
         </div>
         <div class="form-group">
           <label> Hak Akses </label>
-                <select class="form-control" name ="id_akses" id="id_akses"> 
-                <option selected>
-                <?php
-                  foreach($hak_akses as $k) {
-                    $s='';
-                      if($k->id_akses == $user->fk_akses)
-                      { $s='selected'; }
-                ?>
-                <option value="<?php echo $k->id_akses?>" <?php echo $s ?>><?php echo $k->nama_akses?></option>
-              <?php } ?>
-              </select>
-          </div>
+          <select class="form-control" name="id_akses" id="id_akses">
+            <option selected>
+              <?php
+              foreach ($hak_akses as $k) {
+                $s = '';
+                if ($k->id_akses == $user->fk_akses) {
+                  $s = 'selected';
+                }
+              ?>
+            <option value="<?php echo $k->id_akses ?>" <?php echo $s ?>><?php echo $k->nama_akses ?></option>
+          <?php } ?>
+          </select>
+        </div>
 
 
         <?php echo form_close(); ?>

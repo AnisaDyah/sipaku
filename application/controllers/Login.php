@@ -65,7 +65,7 @@ class Login extends CI_Controller
 		} else {
 			//var_dump(validation_errors());
 			$this->session->set_flashdata('error', validation_errors());
-			redirect(base_url("RegisterController"));
+			redirect(base_url("Login/register"));
 		}
 	}
 
