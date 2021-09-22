@@ -79,13 +79,13 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
                                 Solusi
                             </a> -->
-                        <a class="nav-link" href="<?php echo base_url('Basis') ?>">
+                        <!-- <a class="nav-link" href="<?php echo base_url('Basis') ?>">
                             <div class="sb-nav-link-icon"><i class="fas fa-database"></i></div>
                             Basis Kasus
-                        </a>
+                        </a> -->
                         <a class="nav-link" href="<?php echo base_url('KasusController') ?>">
                             <div class="sb-nav-link-icon"><i class="fas fa-database"></i></div>
-                            Kasus Penyakit Kulit
+                            Rule Diagnosa
                         </a>
 
                         <a class="nav-link" href="<?php echo base_url('RiwayatDiagnosaController') ?>">

@@ -5,12 +5,16 @@
       <h1 class="mt-4"></h1>
       <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item"><a href="<?php echo base_url("Admin") ?>">Dashboard</a></li>
-        <li class="breadcrumb-item active"><a href="<?php echo base_url("PenyakitController/index") ?>">Gejala</a></li>
-        <li class="breadcrumb-item active">Insert Kasus Penyakit</li>
+        <li class="breadcrumb-item active"><a href="<?php echo base_url("PenyakitController/index") ?>">Rule</a></li>
+        <li class="breadcrumb-item active">Insert Rule Diagnosa</li>
       </ol>
+      <?php if ($this->session->flashdata('error') != null) : ?>
+          <div class="alert alert-warning" role="alert">
+            <?php echo $this->session->flashdata('error'); ?>
+          </div>
+        <?php endif ?>
       <div class="card mb-6">
-        <form class="form-horizontal" method="post" action="<?php echo base_url() . 'KasusController/simpan_kasus' ?>">
-          <?php echo form_open_multipart("", array("id" => "form-input")); ?>
+        <form class="form-horizontal" method="post" action="<?php echo base_url().'KasusController/simpan_kasus' ?>">
 
           <div class="form-group">
             <label for="exampleFormControlSelect1"><b>Pilih Jenis Penyakit</b></label>
@@ -40,20 +44,25 @@
 
               endforeach; ?>
             </div>
-            <?php echo form_close(); ?>
+        </div>
 
+        <button type="submit" class="btn btn-primary btn-sm">
+          <i class="fa fa-dot-circle-o"></i> Submit
+        </button>
+        <a href="<?php echo base_url('KasusController') ?>" class="btn btn-danger btn-sm">
+          <i class="fa fa-ban"></i> Cancel
+        </a>
         </form>
-
       </div>
 
-      <div class="card-footer">
+      <!-- <div class="card-footer">
         <button type="submit" class="btn btn-primary btn-sm" form="form-input">
           <i class="fa fa-dot-circle-o"></i> Submit
         </button>
         <a href="<?php echo base_url('KasusController') ?>" class="btn btn-danger btn-sm">
           <i class="fa fa-ban"></i> Cancel
         </a>
-      </div>
+      </div> -->
     </div>
 
 

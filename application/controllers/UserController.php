@@ -31,7 +31,7 @@ class UserController extends CI_Controller
 		$data = [
 			'c_name' => $this->c_name,
 		];
-		$this->form_validation->set_rules('username', "username", "required|alpha_numeric|min_length[4]");
+		$this->form_validation->set_rules('username', "username", "required|alpha_numeric|min_length[4]|is_unique[user.username]");
 		$this->form_validation->set_rules('password', "password", "required|min_length[4]");
 		$this->form_validation->set_rules('re-password', "Ketik Ulang Password", "required|matches[password]");
 		$this->form_validation->set_rules('no_hp', "no_hp", "required");

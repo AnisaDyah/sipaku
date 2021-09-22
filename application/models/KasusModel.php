@@ -5,18 +5,25 @@ class KasusModel extends CI_Model
 {
 	public function get_basis_kasus()
 	{
-		$penyakit = $this->db->query("SELECT * FROM mst_penyakit ORDER BY 'ASC' ")->result_array();
+		$penyakit = $this->db->query("SELECT DISTINCT id_penyakit FROM basis_kasus ORDER BY 'ASC' ")->result_array();
 
 		$new_penyakit = [];
 		foreach ($penyakit as $value) {
 			$value['gejala'] = [];
+			$value['nama_penyakit']='';
 			$gejala = $this->db->select('mst_gejala.*')
 				->join('mst_gejala', 'mst_gejala.id_gejala = basis_kasus.id_gejala')
-				->join('mst_penyakit', 'mst_penyakit.id_penyakit = basis_kasus.id_penyakit')
+				//->join('mst_penyakit', 'mst_penyakit.id_penyakit = basis_kasus.id_penyakit')
 				->where('basis_kasus.id_penyakit', $value['id_penyakit'])
 				->get('basis_kasus')->result_array();
 
+			$penyakit = $this->db->select('mst_penyakit.*')
+			->join('mst_penyakit', 'mst_penyakit.id_penyakit = basis_kasus.id_penyakit')
+			->where('basis_kasus.id_penyakit', $value['id_penyakit'])
+			->get('basis_kasus')->result_array();
+
 			array_push($value['gejala'], $gejala);
+			$value['nama_penyakit']=$penyakit[0]['nama_penyakit'];
 			array_push($new_penyakit, $value);
 		}
 		return $new_penyakit;
@@ -74,37 +81,67 @@ class KasusModel extends CI_Model
 		return $this->db->update('basis_kasus', $data);
 	}
 
-	public function update_detail($id_penyakit, $id_gejala, $data)
+	public function update_detail($data)
 	{
-		$this->db->where('id_penyakit', $id_penyakit);
-		$this->db->where('id_gejala', $id_gejala);
-		return $this->db->update('basis_kasus', $data);
+
+		$this->db->where('id_penyakit', $data['id_penyakit']);
+		$delete = $this->db->delete('basis_kasus');
+
+		if($delete){
+			$data_insert = array();
+			foreach ($data['id_gejala'] as $value) {
+			//var_dump($value);
+			$data = array(
+				'id_penyakit' => $data['id_penyakit'],
+				'id_gejala' => $value,
+			);
+			array_push($data_insert, $data);
+			}
+			$insert_detail = $this->db->insert_batch("basis_kasus", $data_insert);
+			if ($insert_detail) {
+				$this->session->set_flashdata("success_message", "Data Berhasil di Ubah");
+			} else {
+				$this->session->set_flashdata("error_message", "Data Gagal di Ubah");
+			}
+		}
+
 	}
 
 
-	public function insert($diagnosa, $detail)
+	public function insert($data)
 	{
-		$insert_diagnosa = $this->db->insert("diagnosa", $diagnosa);
+		//$insert_diagnosa = $this->db->insert("diagnosa", $diagnosa);
 		$data_insert = array();
-		foreach ($detail as $value) {
+		foreach ($data['id_gejala'] as $value) {
 			//var_dump($value);
 			$data = array(
-				'id_diagnosa' => $this->db->insert_id(),
-				'id_gejala' => $value->id_gejala,
+				'id_penyakit' => $data['id_penyakit'],
+				'id_gejala' => $value,
 			);
 			array_push($data_insert, $data);
 		}
-		$insert_detail_diagnosa = $this->db->insert_batch("detail_diagnosa", $data_insert);
+		$insert_detail = $this->db->insert_batch("basis_kasus", $data_insert);
+		if ($insert_detail) {
+            $this->session->set_flashdata("success_message", "Data Berhasil di Tambahkan");
+        } else {
+            $this->session->set_flashdata("error_message", "Data Gagal di Tambahkan");
+        }
 	}
 
-	public function delete($id_bk)
+	public function delete($id_penyakit)
 	{
-		$this->db->where('id_bk', $id_bk);
-		$delete = $this->db->delete($this->table_name);
+		$this->db->where('id_penyakit', $id_penyakit);
+		$delete = $this->db->delete('basis_kasus');
+		
+		//var_dump($this->db->error());
 		if ($delete) {
 			$this->session->set_flashdata("success_message", "Data Berhasil di Hapus");
 		} else {
 			$this->session->set_flashdata("error_message", "Data Gagal di Hapus");
 		}
 	}
+
+	
+
+
 }
