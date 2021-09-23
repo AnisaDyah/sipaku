@@ -41,7 +41,7 @@
                         <?php $rule = $this->PenyakitModel->getTotal(); ?>
                         <div class="card-body">Rule Pakar &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b> <?php echo $rule ?> </b></div>
                         <div class="card-footer d-flex align-items-center justify-content-between">
-                            <a class="small text-white stretched-link" href="<?php echo base_url('Basis') ?>">View Details</a>
+                            <a class="small text-white stretched-link" href="<?php echo base_url('KasusController') ?>">View Details</a>
                             <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                         </div>
                     </div>
