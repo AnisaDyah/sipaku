@@ -27,7 +27,7 @@
                   <td>No.</td>
                   <td>Username</td>
                   <td>Password</td>
-                  <td>Jenis User</td>
+                  <td>Role</td>
                   <td>No HP</td>
                   <td>Alamat</td>
                   <td>TTL</td>

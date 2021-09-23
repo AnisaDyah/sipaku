@@ -81,7 +81,7 @@ class DiagnosaController extends CI_Controller {
                 //echo $perhitungan_fc;
 
                 //jika presentase lebih dari 50% maka penyakit akan terpilih sebagai dugaan diagnosa 
-                if($perhitungan_fc > 50){
+                if($perhitungan_fc >= 50){
                     //array_push($nilai_presentase), $perhitungan_fc);
                     $nilai_presentase[$value['id_penyakit']]= $perhitungan_fc;
                 }
@@ -111,7 +111,7 @@ class DiagnosaController extends CI_Controller {
         //jika data penyakit ditemukan maka tampilkan hasil diagnosa beserta informasi lainnya
         if(count($data_ketemu) >0){
             $penyakit_terpilih = $this->PenyakitModel->get_id($maxKey);
-            $penyakit_terpilih->perhitungan_fc=$maksimal;
+            $penyakit_terpilih->perhitungan_fc=round($maksimal,2);
             $penyakit_terpilih->gejala_selected=$gejala_selected_all[$maxKey];
         
             //kirim hasil diagnosa ke dalam cookie untuk disimpan sementara 

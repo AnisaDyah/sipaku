@@ -37,6 +37,7 @@ class BasisKasusModel extends CI_Model
 	public function insert_hasil_diagnosa($diagnosa, $detail)
 	{
 		$insert_diagnosa = $this->db->insert("diagnosa", $diagnosa);
+		//var_dump($this->db->error());
 		$data_insert = array();
 		foreach ($detail as $value) {
 			//var_dump($value);
@@ -57,6 +58,7 @@ class BasisKasusModel extends CI_Model
 			//->selectRaw("diagnosa.*, mst_penyakit.*, user.*")
 			->join('mst_penyakit', 'mst_penyakit.id_penyakit = diagnosa.id_penyakit')
 			->join('user', 'user.id_user = diagnosa.id_user')
+			->order_by("id_diagnosa", "desc")
 			->get('diagnosa');
 		return $db_kasus;
 	}
